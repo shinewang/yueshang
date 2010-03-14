@@ -20,6 +20,7 @@ class Admin::CompaniesController < Admin::BaseController
     @title = "编辑公司"
     begin
       @company = Company.find(params[:company_id])
+      @categories = Category.find(:all)
     rescue
       return render_not_found
     end
@@ -32,9 +33,9 @@ class Admin::CompaniesController < Admin::BaseController
     rescue
       return render_not_found
     end
-    if @company.update_attributes(params[:account])
+    if @company.update_attributes(params[:company])
       flash[:notice] = '用户信息修改已保存'
-      Audit.log(current_account, request.remote_ip, "用户", "更新", @company.record)
+      #Audit.log(current_account, request.remote_ip, "用户", "更新", @company.record)
       redirect_to admin_list_company_path
     else
       render :action => "edit"

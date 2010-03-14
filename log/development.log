@@ -10647,3 +10647,770 @@ Rendering admin/companies/index
   [4;36;1mCategory Load (0.002836)[0m   [0;1mSELECT * FROM `categories` WHERE (`categories`.`id` = 2) [0m
   [4;35;1mCategory Load (0.004056)[0m   [0mSELECT * FROM `categories` WHERE (`categories`.`id` = 1) [0m
 Completed in 0.36311 (2 reqs/sec) | Rendering: 0.19976 (55%) | DB: 0.11723 (32%) | 200 OK [http://localhost/admin/company]
+
+
+Processing CompaniesController#edit (for 127.0.0.1 at 2010-03-14 15:02:10) [GET]
+  Session ID: BAh7CSIKZmxhc2hJQzonQWN0aW9uQ29udHJvbGxlcjo6Rmxhc2g6OkZsYXNo
+SGFzaHsABjoKQHVzZWR7ADoMY3NyZl9pZCIlZWYzMjMyZjFiYmE3YjI2Mzg0
+NWZkMTM3NWRlMjRmMDI6D2FjY291bnRfaWRpBjoOcmV0dXJuX3RvMA==--6c0c0c449e6035610aee846d527272fce1737eaa
+  Parameters: {"controller"=>"admin/companies", "action"=>"edit", "company_id"=>"3"}
+  [4;36;1mAccount Columns (0.008406)[0m   [0;1mSHOW FIELDS FROM `accounts`[0m
+  [4;35;1mAccount Load (0.005649)[0m   [0mSELECT * FROM `accounts` WHERE (`accounts`.`id` = 1) LIMIT 1[0m
+  [4;36;1mJoin Table Columns (0.006586)[0m   [0;1mSHOW FIELDS FROM `accounts_roles`[0m
+  [4;35;1mRole Load (0.005719)[0m   [0mSELECT * FROM `roles` INNER JOIN `accounts_roles` ON `roles`.id = `accounts_roles`.role_id WHERE (`accounts_roles`.account_id = 1 ) [0m
+  [4;36;1mRole Columns (0.006465)[0m   [0;1mSHOW FIELDS FROM `roles`[0m
+  [4;35;1mCompany Columns (0.010743)[0m   [0mSHOW FIELDS FROM `companies`[0m
+  [4;36;1mCompany Load (0.005525)[0m   [0;1mSELECT * FROM `companies` WHERE (`companies`.`id` = 3) [0m
+Rendering template within layouts/admin
+Rendering admin/companies/edit
+
+
+ActionView::TemplateError (You have a nil object when you didn't expect it!
+You might have expected an instance of Array.
+The error occurred while evaluating nil.collect) on line #60 of admin/companies/edit.html.erb:
+57:     </p>
+58:     <p>
+59:       <label for="category_id">所属行业</label><br />
+60:       <%= select("company", "category_id", @categories.collect {|p| [ p.name, p.id ] })%>
+61:       </p>
+62:     <p>
+63:       <div class="submitButton"><%= submit_tag '更新' %></div>
+
+    app/views/admin/companies/edit.html.erb:60:in `_run_erb_47app47views47admin47companies47edit46html46erb'
+    F:/netbeans6.5/ruby2/jruby-1.1.4/lib/ruby/gems/1.8/gems/actionpack-2.1.0/lib/action_view/helpers/form_helper.rb:317:in `fields_for'
+    F:/netbeans6.5/ruby2/jruby-1.1.4/lib/ruby/gems/1.8/gems/actionpack-2.1.0/lib/action_view/helpers/form_helper.rb:253:in `form_for'
+    app/views/admin/companies/edit.html.erb:4:in `_run_erb_47app47views47admin47companies47edit46html46erb'
+    F:/netbeans6.5/ruby2/jruby-1.1.4/lib/ruby/gems/1.8/gems/actionpack-2.1.0/lib/action_view/base.rb:338:in `execute'
+    F:/netbeans6.5/ruby2/jruby-1.1.4/lib/ruby/gems/1.8/gems/actionpack-2.1.0/lib/action_view/template_handlers/compilable.rb:29:in `render'
+    F:/netbeans6.5/ruby2/jruby-1.1.4/lib/ruby/gems/1.8/gems/actionpack-2.1.0/lib/action_view/template.rb:35:in `render'
+    F:/netbeans6.5/ruby2/jruby-1.1.4/lib/ruby/gems/1.8/gems/actionpack-2.1.0/lib/action_view/template.rb:22:in `render_template'
+    F:/netbeans6.5/ruby2/jruby-1.1.4/lib/ruby/gems/1.8/gems/actionpack-2.1.0/lib/action_view/base.rb:245:in `render_file'
+    F:/netbeans6.5/ruby2/jruby-1.1.4/lib/ruby/gems/1.8/gems/actionpack-2.1.0/lib/action_controller/base.rb:1108:in `render_for_file'
+    F:/netbeans6.5/ruby2/jruby-1.1.4/lib/ruby/gems/1.8/gems/actionpack-2.1.0/lib/action_controller/base.rb:841:in `render'
+    F:/netbeans6.5/ruby2/jruby-1.1.4/lib/ruby/gems/1.8/gems/actionpack-2.1.0/lib/action_controller/layout.rb:251:in `render_with_a_layout'
+    F:/netbeans6.5/ruby2/jruby-1.1.4/lib/ruby/gems/1.8/gems/actionpack-2.1.0/lib/action_controller/benchmarking.rb:51:in `render_with_benchmark'
+    F:/netbeans6.5/ruby2/jruby-1.1.4/lib/ruby/gems/1.8/gems/activesupport-2.1.0/lib/active_support/core_ext/benchmark.rb:8:in `realtime'
+    F:/netbeans6.5/ruby2/jruby-1.1.4/lib/ruby/gems/1.8/gems/actionpack-2.1.0/lib/action_controller/benchmarking.rb:51:in `render_with_benchmark'
+    F:/netbeans6.5/ruby2/jruby-1.1.4/lib/ruby/gems/1.8/gems/actionpack-2.1.0/lib/action_controller/base.rb:1157:in `default_render'
+    F:/netbeans6.5/ruby2/jruby-1.1.4/lib/ruby/gems/1.8/gems/actionpack-2.1.0/lib/action_controller/base.rb:1163:in `perform_action'
+    F:/netbeans6.5/ruby2/jruby-1.1.4/lib/ruby/gems/1.8/gems/actionpack-2.1.0/lib/action_controller/filters.rb:580:in `call_filters'
+    F:/netbeans6.5/ruby2/jruby-1.1.4/lib/ruby/gems/1.8/gems/actionpack-2.1.0/lib/action_controller/filters.rb:573:in `perform_action_with_filters'
+    F:/netbeans6.5/ruby2/jruby-1.1.4/lib/ruby/gems/1.8/gems/actionpack-2.1.0/lib/action_controller/benchmarking.rb:68:in `perform_action_with_benchmark'
+    F:/netbeans6.5/ruby2/jruby-1.1.4/lib/ruby/1.8/benchmark.rb:293:in `measure'
+    F:/netbeans6.5/ruby2/jruby-1.1.4/lib/ruby/gems/1.8/gems/actionpack-2.1.0/lib/action_controller/benchmarking.rb:68:in `perform_action_with_benchmark'
+    F:/netbeans6.5/ruby2/jruby-1.1.4/lib/ruby/gems/1.8/gems/actionpack-2.1.0/lib/action_controller/rescue.rb:201:in `perform_action_with_rescue'
+    F:/netbeans6.5/ruby2/jruby-1.1.4/lib/ruby/gems/1.8/gems/actionpack-2.1.0/lib/action_controller/caching/sql_cache.rb:13:in `perform_action_with_caching'
+    F:/netbeans6.5/ruby2/jruby-1.1.4/lib/ruby/gems/1.8/gems/activerecord-2.1.0/lib/active_record/connection_adapters/abstract/query_cache.rb:33:in `cache'
+    F:/netbeans6.5/ruby2/jruby-1.1.4/lib/ruby/gems/1.8/gems/activerecord-2.1.0/lib/active_record/query_cache.rb:8:in `cache'
+    F:/netbeans6.5/ruby2/jruby-1.1.4/lib/ruby/gems/1.8/gems/actionpack-2.1.0/lib/action_controller/caching/sql_cache.rb:12:in `perform_action_with_caching'
+    F:/netbeans6.5/ruby2/jruby-1.1.4/lib/ruby/gems/1.8/gems/actionpack-2.1.0/lib/action_controller/base.rb:529:in `process'
+    F:/netbeans6.5/ruby2/jruby-1.1.4/lib/ruby/gems/1.8/gems/actionpack-2.1.0/lib/action_controller/filters.rb:569:in `process_with_filters'
+    F:/netbeans6.5/ruby2/jruby-1.1.4/lib/ruby/gems/1.8/gems/actionpack-2.1.0/lib/action_controller/session_management.rb:130:in `process_with_session_management_support'
+    F:/netbeans6.5/ruby2/jruby-1.1.4/lib/ruby/gems/1.8/gems/actionpack-2.1.0/lib/action_controller/base.rb:389:in `process'
+    F:/netbeans6.5/ruby2/jruby-1.1.4/lib/ruby/gems/1.8/gems/actionpack-2.1.0/lib/action_controller/dispatcher.rb:149:in `handle_request'
+    F:/netbeans6.5/ruby2/jruby-1.1.4/lib/ruby/gems/1.8/gems/actionpack-2.1.0/lib/action_controller/dispatcher.rb:107:in `dispatch'
+    F:/netbeans6.5/ruby2/jruby-1.1.4/lib/ruby/gems/1.8/gems/actionpack-2.1.0/lib/action_controller/dispatcher.rb:104:in `dispatch'
+    F:/netbeans6.5/ruby2/jruby-1.1.4/lib/ruby/gems/1.8/gems/actionpack-2.1.0/lib/action_controller/dispatcher.rb:120:in `dispatch_cgi'
+    F:/netbeans6.5/ruby2/jruby-1.1.4/lib/ruby/gems/1.8/gems/actionpack-2.1.0/lib/action_controller/dispatcher.rb:35:in `dispatch'
+    F:/netbeans6.5/ruby2/jruby-1.1.4/lib/ruby/gems/1.8/gems/rails-2.1.0/lib/webrick_server.rb:112:in `handle_dispatch'
+    F:/netbeans6.5/ruby2/jruby-1.1.4/lib/ruby/gems/1.8/gems/rails-2.1.0/lib/webrick_server.rb:78:in `service'
+    F:/netbeans6.5/ruby2/jruby-1.1.4/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+    F:/netbeans6.5/ruby2/jruby-1.1.4/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+    F:/netbeans6.5/ruby2/jruby-1.1.4/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+    :1:in `start'
+
+Rendering F:/netbeans6.5/ruby2/jruby-1.1.4/lib/ruby/gems/1.8/gems/actionpack-2.1.0/lib/action_controller/templates/rescues/layout.erb (internal_server_error)
+
+
+Processing CompaniesController#index (for 127.0.0.1 at 2010-03-14 15:03:17) [GET]
+  Session ID: BAh7CSIKZmxhc2hJQzonQWN0aW9uQ29udHJvbGxlcjo6Rmxhc2g6OkZsYXNo
+SGFzaHsABjoKQHVzZWR7ADoMY3NyZl9pZCIlZWYzMjMyZjFiYmE3YjI2Mzg0
+NWZkMTM3NWRlMjRmMDI6D2FjY291bnRfaWRpBjoOcmV0dXJuX3RvMA==--6c0c0c449e6035610aee846d527272fce1737eaa
+  Parameters: {"controller"=>"admin/companies", "action"=>"index"}
+  [4;35;1mAccount Columns (0.010136)[0m   [0mSHOW FIELDS FROM `accounts`[0m
+  [4;36;1mAccount Load (0.002801)[0m   [0;1mSELECT * FROM `accounts` WHERE (`accounts`.`id` = 1) LIMIT 1[0m
+  [4;35;1mJoin Table Columns (0.023122)[0m   [0mSHOW FIELDS FROM `accounts_roles`[0m
+  [4;36;1mRole Load (0.006081)[0m   [0;1mSELECT * FROM `roles` INNER JOIN `accounts_roles` ON `roles`.id = `accounts_roles`.role_id WHERE (`accounts_roles`.account_id = 1 ) [0m
+  [4;35;1mRole Columns (0.008608)[0m   [0mSHOW FIELDS FROM `roles`[0m
+  [4;36;1mCompany Load (0.003648)[0m   [0;1mSELECT * FROM `companies` ORDER BY created_at DESC[0m
+Rendering template within layouts/admin
+Rendering admin/companies/index
+  [4;35;1mCompany Columns (0.013149)[0m   [0mSHOW FIELDS FROM `companies`[0m
+  [4;36;1mCategory Columns (0.007744)[0m   [0;1mSHOW FIELDS FROM `categories`[0m
+  [4;35;1mCategory Load (0.004912)[0m   [0mSELECT * FROM `categories` WHERE (`categories`.`id` = 3) [0m
+  [4;36;1mCategory Load (0.001741)[0m   [0;1mSELECT * FROM `categories` WHERE (`categories`.`id` = 2) [0m
+  [4;35;1mCategory Load (0.008591)[0m   [0mSELECT * FROM `categories` WHERE (`categories`.`id` = 1) [0m
+Completed in 0.33369 (2 reqs/sec) | Rendering: 0.19042 (57%) | DB: 0.09053 (27%) | 200 OK [http://localhost/admin/company]
+
+
+Processing CompaniesController#new (for 127.0.0.1 at 2010-03-14 15:03:19) [GET]
+  Session ID: BAh7CSIKZmxhc2hJQzonQWN0aW9uQ29udHJvbGxlcjo6Rmxhc2g6OkZsYXNo
+SGFzaHsABjoKQHVzZWR7ADoMY3NyZl9pZCIlZWYzMjMyZjFiYmE3YjI2Mzg0
+NWZkMTM3NWRlMjRmMDI6D2FjY291bnRfaWRpBjoOcmV0dXJuX3RvMA==--6c0c0c449e6035610aee846d527272fce1737eaa
+  Parameters: {"controller"=>"admin/companies", "action"=>"new"}
+  [4;36;1mAccount Columns (0.010021)[0m   [0;1mSHOW FIELDS FROM `accounts`[0m
+  [4;35;1mAccount Load (0.017539)[0m   [0mSELECT * FROM `accounts` WHERE (`accounts`.`id` = 1) LIMIT 1[0m
+  [4;36;1mJoin Table Columns (0.008457)[0m   [0;1mSHOW FIELDS FROM `accounts_roles`[0m
+  [4;35;1mRole Load (0.002096)[0m   [0mSELECT * FROM `roles` INNER JOIN `accounts_roles` ON `roles`.id = `accounts_roles`.role_id WHERE (`accounts_roles`.account_id = 1 ) [0m
+  [4;36;1mRole Columns (0.009309)[0m   [0;1mSHOW FIELDS FROM `roles`[0m
+  [4;35;1mCompany Columns (0.010011)[0m   [0mSHOW FIELDS FROM `companies`[0m
+  [4;36;1mCategory Load (0.004622)[0m   [0;1mSELECT * FROM `categories` [0m
+Rendering template within layouts/admin
+Rendering admin/companies/new
+  [4;35;1mCategory Columns (0.027666)[0m   [0mSHOW FIELDS FROM `categories`[0m
+Completed in 0.30351 (3 reqs/sec) | Rendering: 0.15025 (49%) | DB: 0.08972 (29%) | 200 OK [http://localhost/admin/company/new]
+
+
+Processing CompaniesController#index (for 127.0.0.1 at 2010-03-14 15:04:30) [GET]
+  Session ID: BAh7CSIKZmxhc2hJQzonQWN0aW9uQ29udHJvbGxlcjo6Rmxhc2g6OkZsYXNo
+SGFzaHsABjoKQHVzZWR7ADoMY3NyZl9pZCIlZWYzMjMyZjFiYmE3YjI2Mzg0
+NWZkMTM3NWRlMjRmMDI6D2FjY291bnRfaWRpBjoOcmV0dXJuX3RvMA==--6c0c0c449e6035610aee846d527272fce1737eaa
+  Parameters: {"controller"=>"admin/companies", "action"=>"index"}
+  [4;36;1mAccount Columns (0.009299)[0m   [0;1mSHOW FIELDS FROM `accounts`[0m
+  [4;35;1mAccount Load (0.005407)[0m   [0mSELECT * FROM `accounts` WHERE (`accounts`.`id` = 1) LIMIT 1[0m
+  [4;36;1mJoin Table Columns (0.006384)[0m   [0;1mSHOW FIELDS FROM `accounts_roles`[0m
+  [4;35;1mRole Load (0.004639)[0m   [0mSELECT * FROM `roles` INNER JOIN `accounts_roles` ON `roles`.id = `accounts_roles`.role_id WHERE (`accounts_roles`.account_id = 1 ) [0m
+  [4;36;1mRole Columns (0.011762)[0m   [0;1mSHOW FIELDS FROM `roles`[0m
+  [4;35;1mCompany Load (0.005435)[0m   [0mSELECT * FROM `companies` ORDER BY created_at DESC[0m
+Rendering template within layouts/admin
+Rendering admin/companies/index
+  [4;36;1mCompany Columns (0.007555)[0m   [0;1mSHOW FIELDS FROM `companies`[0m
+  [4;35;1mCategory Columns (0.014987)[0m   [0mSHOW FIELDS FROM `categories`[0m
+  [4;36;1mCategory Load (0.001426)[0m   [0;1mSELECT * FROM `categories` WHERE (`categories`.`id` = 3) [0m
+  [4;35;1mCategory Load (0.001482)[0m   [0mSELECT * FROM `categories` WHERE (`categories`.`id` = 2) [0m
+  [4;36;1mCategory Load (0.001427)[0m   [0;1mSELECT * FROM `categories` WHERE (`categories`.`id` = 1) [0m
+Completed in 0.39073 (2 reqs/sec) | Rendering: 0.20700 (52%) | DB: 0.06980 (17%) | 200 OK [http://localhost/admin/company]
+
+
+Processing CompaniesController#edit (for 127.0.0.1 at 2010-03-14 15:04:32) [GET]
+  Session ID: BAh7CSIKZmxhc2hJQzonQWN0aW9uQ29udHJvbGxlcjo6Rmxhc2g6OkZsYXNo
+SGFzaHsABjoKQHVzZWR7ADoMY3NyZl9pZCIlZWYzMjMyZjFiYmE3YjI2Mzg0
+NWZkMTM3NWRlMjRmMDI6D2FjY291bnRfaWRpBjoOcmV0dXJuX3RvMA==--6c0c0c449e6035610aee846d527272fce1737eaa
+  Parameters: {"controller"=>"admin/companies", "action"=>"edit", "company_id"=>"3"}
+  [4;35;1mAccount Columns (0.009545)[0m   [0mSHOW FIELDS FROM `accounts`[0m
+  [4;36;1mAccount Load (0.002333)[0m   [0;1mSELECT * FROM `accounts` WHERE (`accounts`.`id` = 1) LIMIT 1[0m
+  [4;35;1mJoin Table Columns (0.008193)[0m   [0mSHOW FIELDS FROM `accounts_roles`[0m
+  [4;36;1mRole Load (0.001987)[0m   [0;1mSELECT * FROM `roles` INNER JOIN `accounts_roles` ON `roles`.id = `accounts_roles`.role_id WHERE (`accounts_roles`.account_id = 1 ) [0m
+  [4;35;1mRole Columns (0.008615)[0m   [0mSHOW FIELDS FROM `roles`[0m
+  [4;36;1mCompany Columns (0.010072)[0m   [0;1mSHOW FIELDS FROM `companies`[0m
+  [4;35;1mCompany Load (0.003307)[0m   [0mSELECT * FROM `companies` WHERE (`companies`.`id` = 3) [0m
+Rendering template within layouts/admin
+Rendering admin/companies/edit
+
+
+ActionView::TemplateError (You have a nil object when you didn't expect it!
+You might have expected an instance of Array.
+The error occurred while evaluating nil.collect) on line #60 of admin/companies/edit.html.erb:
+57:     </p>
+58:     <p>
+59:       <label for="category_id">所属行业</label><br />
+60:       <%= select("company", "category_id", @categories.collect {|p| [ p.name, p.id ] })%>
+61:       </p>
+62:     <p>
+63:       <div class="submitButton"><%= submit_tag '更新' %></div>
+
+    app/views/admin/companies/edit.html.erb:60:in `_run_erb_47app47views47admin47companies47edit46html46erb'
+    F:/netbeans6.5/ruby2/jruby-1.1.4/lib/ruby/gems/1.8/gems/actionpack-2.1.0/lib/action_view/helpers/form_helper.rb:317:in `fields_for'
+    F:/netbeans6.5/ruby2/jruby-1.1.4/lib/ruby/gems/1.8/gems/actionpack-2.1.0/lib/action_view/helpers/form_helper.rb:253:in `form_for'
+    app/views/admin/companies/edit.html.erb:4:in `_run_erb_47app47views47admin47companies47edit46html46erb'
+    F:/netbeans6.5/ruby2/jruby-1.1.4/lib/ruby/gems/1.8/gems/actionpack-2.1.0/lib/action_view/base.rb:338:in `execute'
+    F:/netbeans6.5/ruby2/jruby-1.1.4/lib/ruby/gems/1.8/gems/actionpack-2.1.0/lib/action_view/template_handlers/compilable.rb:29:in `render'
+    F:/netbeans6.5/ruby2/jruby-1.1.4/lib/ruby/gems/1.8/gems/actionpack-2.1.0/lib/action_view/template.rb:35:in `render'
+    F:/netbeans6.5/ruby2/jruby-1.1.4/lib/ruby/gems/1.8/gems/actionpack-2.1.0/lib/action_view/template.rb:22:in `render_template'
+    F:/netbeans6.5/ruby2/jruby-1.1.4/lib/ruby/gems/1.8/gems/actionpack-2.1.0/lib/action_view/base.rb:245:in `render_file'
+    F:/netbeans6.5/ruby2/jruby-1.1.4/lib/ruby/gems/1.8/gems/actionpack-2.1.0/lib/action_controller/base.rb:1108:in `render_for_file'
+    F:/netbeans6.5/ruby2/jruby-1.1.4/lib/ruby/gems/1.8/gems/actionpack-2.1.0/lib/action_controller/base.rb:841:in `render'
+    F:/netbeans6.5/ruby2/jruby-1.1.4/lib/ruby/gems/1.8/gems/actionpack-2.1.0/lib/action_controller/layout.rb:251:in `render_with_a_layout'
+    F:/netbeans6.5/ruby2/jruby-1.1.4/lib/ruby/gems/1.8/gems/actionpack-2.1.0/lib/action_controller/benchmarking.rb:51:in `render_with_benchmark'
+    F:/netbeans6.5/ruby2/jruby-1.1.4/lib/ruby/gems/1.8/gems/activesupport-2.1.0/lib/active_support/core_ext/benchmark.rb:8:in `realtime'
+    F:/netbeans6.5/ruby2/jruby-1.1.4/lib/ruby/gems/1.8/gems/actionpack-2.1.0/lib/action_controller/benchmarking.rb:51:in `render_with_benchmark'
+    F:/netbeans6.5/ruby2/jruby-1.1.4/lib/ruby/gems/1.8/gems/actionpack-2.1.0/lib/action_controller/base.rb:1157:in `default_render'
+    F:/netbeans6.5/ruby2/jruby-1.1.4/lib/ruby/gems/1.8/gems/actionpack-2.1.0/lib/action_controller/base.rb:1163:in `perform_action'
+    F:/netbeans6.5/ruby2/jruby-1.1.4/lib/ruby/gems/1.8/gems/actionpack-2.1.0/lib/action_controller/filters.rb:580:in `call_filters'
+    F:/netbeans6.5/ruby2/jruby-1.1.4/lib/ruby/gems/1.8/gems/actionpack-2.1.0/lib/action_controller/filters.rb:573:in `perform_action_with_filters'
+    F:/netbeans6.5/ruby2/jruby-1.1.4/lib/ruby/gems/1.8/gems/actionpack-2.1.0/lib/action_controller/benchmarking.rb:68:in `perform_action_with_benchmark'
+    F:/netbeans6.5/ruby2/jruby-1.1.4/lib/ruby/1.8/benchmark.rb:293:in `measure'
+    F:/netbeans6.5/ruby2/jruby-1.1.4/lib/ruby/gems/1.8/gems/actionpack-2.1.0/lib/action_controller/benchmarking.rb:68:in `perform_action_with_benchmark'
+    F:/netbeans6.5/ruby2/jruby-1.1.4/lib/ruby/gems/1.8/gems/actionpack-2.1.0/lib/action_controller/rescue.rb:201:in `perform_action_with_rescue'
+    F:/netbeans6.5/ruby2/jruby-1.1.4/lib/ruby/gems/1.8/gems/actionpack-2.1.0/lib/action_controller/caching/sql_cache.rb:13:in `perform_action_with_caching'
+    F:/netbeans6.5/ruby2/jruby-1.1.4/lib/ruby/gems/1.8/gems/activerecord-2.1.0/lib/active_record/connection_adapters/abstract/query_cache.rb:33:in `cache'
+    F:/netbeans6.5/ruby2/jruby-1.1.4/lib/ruby/gems/1.8/gems/activerecord-2.1.0/lib/active_record/query_cache.rb:8:in `cache'
+    F:/netbeans6.5/ruby2/jruby-1.1.4/lib/ruby/gems/1.8/gems/actionpack-2.1.0/lib/action_controller/caching/sql_cache.rb:12:in `perform_action_with_caching'
+    F:/netbeans6.5/ruby2/jruby-1.1.4/lib/ruby/gems/1.8/gems/actionpack-2.1.0/lib/action_controller/base.rb:529:in `process'
+    F:/netbeans6.5/ruby2/jruby-1.1.4/lib/ruby/gems/1.8/gems/actionpack-2.1.0/lib/action_controller/filters.rb:569:in `process_with_filters'
+    F:/netbeans6.5/ruby2/jruby-1.1.4/lib/ruby/gems/1.8/gems/actionpack-2.1.0/lib/action_controller/session_management.rb:130:in `process_with_session_management_support'
+    F:/netbeans6.5/ruby2/jruby-1.1.4/lib/ruby/gems/1.8/gems/actionpack-2.1.0/lib/action_controller/base.rb:389:in `process'
+    F:/netbeans6.5/ruby2/jruby-1.1.4/lib/ruby/gems/1.8/gems/actionpack-2.1.0/lib/action_controller/dispatcher.rb:149:in `handle_request'
+    F:/netbeans6.5/ruby2/jruby-1.1.4/lib/ruby/gems/1.8/gems/actionpack-2.1.0/lib/action_controller/dispatcher.rb:107:in `dispatch'
+    F:/netbeans6.5/ruby2/jruby-1.1.4/lib/ruby/gems/1.8/gems/actionpack-2.1.0/lib/action_controller/dispatcher.rb:104:in `dispatch'
+    F:/netbeans6.5/ruby2/jruby-1.1.4/lib/ruby/gems/1.8/gems/actionpack-2.1.0/lib/action_controller/dispatcher.rb:120:in `dispatch_cgi'
+    F:/netbeans6.5/ruby2/jruby-1.1.4/lib/ruby/gems/1.8/gems/actionpack-2.1.0/lib/action_controller/dispatcher.rb:35:in `dispatch'
+    F:/netbeans6.5/ruby2/jruby-1.1.4/lib/ruby/gems/1.8/gems/rails-2.1.0/lib/webrick_server.rb:112:in `handle_dispatch'
+    F:/netbeans6.5/ruby2/jruby-1.1.4/lib/ruby/gems/1.8/gems/rails-2.1.0/lib/webrick_server.rb:78:in `service'
+    F:/netbeans6.5/ruby2/jruby-1.1.4/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+    F:/netbeans6.5/ruby2/jruby-1.1.4/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+    F:/netbeans6.5/ruby2/jruby-1.1.4/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+    :1:in `start'
+
+Rendering F:/netbeans6.5/ruby2/jruby-1.1.4/lib/ruby/gems/1.8/gems/actionpack-2.1.0/lib/action_controller/templates/rescues/layout.erb (internal_server_error)
+
+
+Processing CompaniesController#edit (for 127.0.0.1 at 2010-03-14 15:05:15) [GET]
+  Session ID: BAh7CSIKZmxhc2hJQzonQWN0aW9uQ29udHJvbGxlcjo6Rmxhc2g6OkZsYXNo
+SGFzaHsABjoKQHVzZWR7ADoMY3NyZl9pZCIlZWYzMjMyZjFiYmE3YjI2Mzg0
+NWZkMTM3NWRlMjRmMDI6D2FjY291bnRfaWRpBjoOcmV0dXJuX3RvMA==--6c0c0c449e6035610aee846d527272fce1737eaa
+  Parameters: {"controller"=>"admin/companies", "action"=>"edit", "company_id"=>"3"}
+  [4;36;1mAccount Columns (0.010622)[0m   [0;1mSHOW FIELDS FROM `accounts`[0m
+  [4;35;1mAccount Load (0.002367)[0m   [0mSELECT * FROM `accounts` WHERE (`accounts`.`id` = 1) LIMIT 1[0m
+  [4;36;1mJoin Table Columns (0.008138)[0m   [0;1mSHOW FIELDS FROM `accounts_roles`[0m
+  [4;35;1mRole Load (0.038283)[0m   [0mSELECT * FROM `roles` INNER JOIN `accounts_roles` ON `roles`.id = `accounts_roles`.role_id WHERE (`accounts_roles`.account_id = 1 ) [0m
+  [4;36;1mRole Columns (0.010342)[0m   [0;1mSHOW FIELDS FROM `roles`[0m
+  [4;35;1mCompany Columns (0.009645)[0m   [0mSHOW FIELDS FROM `companies`[0m
+  [4;36;1mCompany Load (0.005759)[0m   [0;1mSELECT * FROM `companies` WHERE (`companies`.`id` = 3) [0m
+  [4;35;1mCategory Load (0.001928)[0m   [0mSELECT * FROM `categories` [0m
+Rendering template within layouts/admin
+Rendering admin/companies/edit
+  [4;36;1mCategory Columns (0.008436)[0m   [0;1mSHOW FIELDS FROM `categories`[0m
+Completed in 0.28625 (3 reqs/sec) | Rendering: 0.11912 (41%) | DB: 0.09552 (33%) | 200 OK [http://localhost/admin/company/3/edit]
+
+
+Processing CompaniesController#create (for 127.0.0.1 at 2010-03-14 15:05:55) [POST]
+  Session ID: BAh7CSIKZmxhc2hJQzonQWN0aW9uQ29udHJvbGxlcjo6Rmxhc2g6OkZsYXNo
+SGFzaHsABjoKQHVzZWR7ADoMY3NyZl9pZCIlZWYzMjMyZjFiYmE3YjI2Mzg0
+NWZkMTM3NWRlMjRmMDI6D2FjY291bnRfaWRpBjoOcmV0dXJuX3RvMA==--6c0c0c449e6035610aee846d527272fce1737eaa
+  Parameters: {"authenticity_token"=>"836992cd65c9aa197ebbe4191944682e260420c9", "company"=>{"name"=>"IBM", "introduction"=>"aaa", "contact_person"=>"aaa", "tel"=>"aaa", "mobile"=>"aaa", "email"=>"aaa", "qq"=>"aaa", "msn"=>"aaa", "fax"=>"aaaaaa", "address"=>"aaa", "zip"=>"aaa", "site"=>"aaa", "remark"=>"aaa", "category_id"=>"2"}, "commit"=>"更新", "controller"=>"admin/companies", "action"=>"create"}
+  [4;35;1mAccount Columns (0.009660)[0m   [0mSHOW FIELDS FROM `accounts`[0m
+  [4;36;1mAccount Load (0.002460)[0m   [0;1mSELECT * FROM `accounts` WHERE (`accounts`.`id` = 1) LIMIT 1[0m
+  [4;35;1mJoin Table Columns (0.010261)[0m   [0mSHOW FIELDS FROM `accounts_roles`[0m
+  [4;36;1mRole Load (0.001738)[0m   [0;1mSELECT * FROM `roles` INNER JOIN `accounts_roles` ON `roles`.id = `accounts_roles`.role_id WHERE (`accounts_roles`.account_id = 1 ) [0m
+  [4;35;1mRole Columns (0.008296)[0m   [0mSHOW FIELDS FROM `roles`[0m
+  [4;36;1mCompany Columns (0.010017)[0m   [0;1mSHOW FIELDS FROM `companies`[0m
+  [4;35;1mSQL (0.038555)[0m   [0mBEGIN[0m
+  [4;36;1mCompany Create (0.101791)[0m   [0;1mINSERT INTO `companies` (`name`, `introduction`, `contact_person`, `tel`, `mobile`, `email`, `qq`, `msn`, `fax`, `address`, `zip`, `site`, `remark`, `category_id`, `status`, `created_at`, `updated_at`) VALUES('IBM', 'aaa', 'aaa', 'aaa', 'aaa', 'aaa', 'aaa', 'aaa', 'aaaaaa', 'aaa', 'aaa', 'aaa', 'aaa', 2, NULL, '2010-03-14 07:05:55', '2010-03-14 07:05:55')[0m
+  [4;35;1mSQL (0.040595)[0m   [0mCOMMIT[0m
+Redirected to http://localhost:3000/admin/company
+Completed in 0.37257 (2 reqs/sec) | DB: 0.22337 (59%) | 302 Found [http://localhost/admin/company/new]
+
+
+Processing CompaniesController#index (for 127.0.0.1 at 2010-03-14 15:05:55) [GET]
+  Session ID: BAh7CSIKZmxhc2hJQzonQWN0aW9uQ29udHJvbGxlcjo6Rmxhc2g6OkZsYXNo
+SGFzaHsGOgtub3RpY2UiF+WFrOWPuOaWsOW7uuaIkOWKnwY6CkB1c2VkewY7
+BkY6DGNzcmZfaWQiJWVmMzIzMmYxYmJhN2IyNjM4NDVmZDEzNzVkZTI0ZjAy
+Og9hY2NvdW50X2lkaQY6DnJldHVybl90bzA=--45ac4dbdc5e8b99672da725ac62144b98a1fd4c8
+  Parameters: {"controller"=>"admin/companies", "action"=>"index"}
+  [4;36;1mAccount Columns (0.009491)[0m   [0;1mSHOW FIELDS FROM `accounts`[0m
+  [4;35;1mAccount Load (0.002741)[0m   [0mSELECT * FROM `accounts` WHERE (`accounts`.`id` = 1) LIMIT 1[0m
+  [4;36;1mJoin Table Columns (0.008653)[0m   [0;1mSHOW FIELDS FROM `accounts_roles`[0m
+  [4;35;1mRole Load (0.001806)[0m   [0mSELECT * FROM `roles` INNER JOIN `accounts_roles` ON `roles`.id = `accounts_roles`.role_id WHERE (`accounts_roles`.account_id = 1 ) [0m
+  [4;36;1mRole Columns (0.008366)[0m   [0;1mSHOW FIELDS FROM `roles`[0m
+  [4;35;1mCompany Load (0.003221)[0m   [0mSELECT * FROM `companies` ORDER BY created_at DESC[0m
+Rendering template within layouts/admin
+Rendering admin/companies/index
+  [4;36;1mCompany Columns (0.015146)[0m   [0;1mSHOW FIELDS FROM `companies`[0m
+  [4;35;1mCategory Columns (0.008619)[0m   [0mSHOW FIELDS FROM `categories`[0m
+  [4;36;1mCategory Load (0.001342)[0m   [0;1mSELECT * FROM `categories` WHERE (`categories`.`id` = 2) [0m
+  [4;35;1mCategory Load (0.001676)[0m   [0mSELECT * FROM `categories` WHERE (`categories`.`id` = 3) [0m
+  [4;36;1mCACHE (0.000000)[0m   [0;1mSELECT * FROM `categories` WHERE (`categories`.`id` = 2) [0m
+  [4;35;1mCategory Load (0.001468)[0m   [0mSELECT * FROM `categories` WHERE (`categories`.`id` = 1) [0m
+Completed in 0.29157 (3 reqs/sec) | Rendering: 0.17567 (60%) | DB: 0.06253 (21%) | 200 OK [http://localhost/admin/company]
+
+
+Processing CompaniesController#edit (for 127.0.0.1 at 2010-03-14 15:06:00) [GET]
+  Session ID: BAh7CSIKZmxhc2hJQzonQWN0aW9uQ29udHJvbGxlcjo6Rmxhc2g6OkZsYXNo
+SGFzaHsGOgtub3RpY2UiF+WFrOWPuOaWsOW7uuaIkOWKnwY6CkB1c2VkewY7
+BlQ6DGNzcmZfaWQiJWVmMzIzMmYxYmJhN2IyNjM4NDVmZDEzNzVkZTI0ZjAy
+Og9hY2NvdW50X2lkaQY6DnJldHVybl90bzA=--bfcae6624532af08d213cbb001d8188eb06644cf
+  Parameters: {"controller"=>"admin/companies", "action"=>"edit", "company_id"=>"4"}
+  [4;36;1mAccount Columns (0.010347)[0m   [0;1mSHOW FIELDS FROM `accounts`[0m
+  [4;35;1mAccount Load (0.002428)[0m   [0mSELECT * FROM `accounts` WHERE (`accounts`.`id` = 1) LIMIT 1[0m
+  [4;36;1mJoin Table Columns (0.008489)[0m   [0;1mSHOW FIELDS FROM `accounts_roles`[0m
+  [4;35;1mRole Load (0.001848)[0m   [0mSELECT * FROM `roles` INNER JOIN `accounts_roles` ON `roles`.id = `accounts_roles`.role_id WHERE (`accounts_roles`.account_id = 1 ) [0m
+  [4;36;1mRole Columns (0.008420)[0m   [0;1mSHOW FIELDS FROM `roles`[0m
+  [4;35;1mCompany Columns (0.009847)[0m   [0mSHOW FIELDS FROM `companies`[0m
+  [4;36;1mCompany Load (0.008737)[0m   [0;1mSELECT * FROM `companies` WHERE (`companies`.`id` = 4) [0m
+  [4;35;1mCategory Load (0.001576)[0m   [0mSELECT * FROM `categories` [0m
+Rendering template within layouts/admin
+Rendering admin/companies/edit
+  [4;36;1mCategory Columns (0.008766)[0m   [0;1mSHOW FIELDS FROM `categories`[0m
+Completed in 0.27128 (3 reqs/sec) | Rendering: 0.10397 (38%) | DB: 0.06046 (22%) | 200 OK [http://localhost/admin/company/4/edit]
+
+
+Processing CompaniesController#index (for 127.0.0.1 at 2010-03-14 15:06:05) [GET]
+  Session ID: BAh7CSIKZmxhc2hJQzonQWN0aW9uQ29udHJvbGxlcjo6Rmxhc2g6OkZsYXNo
+SGFzaHsABjoKQHVzZWR7ADoMY3NyZl9pZCIlZWYzMjMyZjFiYmE3YjI2Mzg0
+NWZkMTM3NWRlMjRmMDI6D2FjY291bnRfaWRpBjoOcmV0dXJuX3RvMA==--6c0c0c449e6035610aee846d527272fce1737eaa
+  Parameters: {"controller"=>"admin/companies", "action"=>"index"}
+  [4;35;1mAccount Columns (0.009444)[0m   [0mSHOW FIELDS FROM `accounts`[0m
+  [4;36;1mAccount Load (0.002458)[0m   [0;1mSELECT * FROM `accounts` WHERE (`accounts`.`id` = 1) LIMIT 1[0m
+  [4;35;1mJoin Table Columns (0.008545)[0m   [0mSHOW FIELDS FROM `accounts_roles`[0m
+  [4;36;1mRole Load (0.001723)[0m   [0;1mSELECT * FROM `roles` INNER JOIN `accounts_roles` ON `roles`.id = `accounts_roles`.role_id WHERE (`accounts_roles`.account_id = 1 ) [0m
+  [4;35;1mRole Columns (0.008484)[0m   [0mSHOW FIELDS FROM `roles`[0m
+  [4;36;1mCompany Load (0.003739)[0m   [0;1mSELECT * FROM `companies` ORDER BY created_at DESC[0m
+Rendering template within layouts/admin
+Rendering admin/companies/index
+  [4;35;1mCompany Columns (0.010116)[0m   [0mSHOW FIELDS FROM `companies`[0m
+  [4;36;1mCategory Columns (0.009504)[0m   [0;1mSHOW FIELDS FROM `categories`[0m
+  [4;35;1mCategory Load (0.001305)[0m   [0mSELECT * FROM `categories` WHERE (`categories`.`id` = 2) [0m
+  [4;36;1mCategory Load (0.001398)[0m   [0;1mSELECT * FROM `categories` WHERE (`categories`.`id` = 3) [0m
+  [4;35;1mCACHE (0.000000)[0m   [0mSELECT * FROM `categories` WHERE (`categories`.`id` = 2) [0m
+  [4;36;1mCategory Load (0.001413)[0m   [0;1mSELECT * FROM `categories` WHERE (`categories`.`id` = 1) [0m
+Completed in 0.23427 (4 reqs/sec) | Rendering: 0.12498 (53%) | DB: 0.05813 (24%) | 200 OK [http://localhost/admin/company]
+
+
+Processing CompaniesController#edit (for 127.0.0.1 at 2010-03-14 15:07:02) [GET]
+  Session ID: BAh7CSIKZmxhc2hJQzonQWN0aW9uQ29udHJvbGxlcjo6Rmxhc2g6OkZsYXNo
+SGFzaHsABjoKQHVzZWR7ADoMY3NyZl9pZCIlZWYzMjMyZjFiYmE3YjI2Mzg0
+NWZkMTM3NWRlMjRmMDI6D2FjY291bnRfaWRpBjoOcmV0dXJuX3RvMA==--6c0c0c449e6035610aee846d527272fce1737eaa
+  Parameters: {"controller"=>"admin/companies", "action"=>"edit", "company_id"=>"4"}
+  [4;35;1mAccount Columns (0.041684)[0m   [0mSHOW FIELDS FROM `accounts`[0m
+  [4;36;1mAccount Load (0.004880)[0m   [0;1mSELECT * FROM `accounts` WHERE (`accounts`.`id` = 1) LIMIT 1[0m
+  [4;35;1mJoin Table Columns (0.019522)[0m   [0mSHOW FIELDS FROM `accounts_roles`[0m
+  [4;36;1mRole Load (0.022370)[0m   [0;1mSELECT * FROM `roles` INNER JOIN `accounts_roles` ON `roles`.id = `accounts_roles`.role_id WHERE (`accounts_roles`.account_id = 1 ) [0m
+  [4;35;1mRole Columns (0.005887)[0m   [0mSHOW FIELDS FROM `roles`[0m
+  [4;36;1mCompany Columns (0.107401)[0m   [0;1mSHOW FIELDS FROM `companies`[0m
+  [4;35;1mCompany Load (0.012076)[0m   [0mSELECT * FROM `companies` WHERE (`companies`.`id` = 4) [0m
+  [4;36;1mCategory Load (0.017811)[0m   [0;1mSELECT * FROM `categories` [0m
+Rendering template within layouts/admin
+Rendering admin/companies/edit
+  [4;35;1mCategory Columns (0.013680)[0m   [0mSHOW FIELDS FROM `categories`[0m
+Completed in 0.72724 (1 reqs/sec) | Rendering: 0.08667 (11%) | DB: 0.24531 (33%) | 200 OK [http://localhost/admin/company/4/edit]
+
+
+Processing CompaniesController#index (for 127.0.0.1 at 2010-03-14 15:07:52) [GET]
+  Session ID: BAh7CSIKZmxhc2hJQzonQWN0aW9uQ29udHJvbGxlcjo6Rmxhc2g6OkZsYXNo
+SGFzaHsABjoKQHVzZWR7ADoMY3NyZl9pZCIlZWYzMjMyZjFiYmE3YjI2Mzg0
+NWZkMTM3NWRlMjRmMDI6D2FjY291bnRfaWRpBjoOcmV0dXJuX3RvMA==--6c0c0c449e6035610aee846d527272fce1737eaa
+  Parameters: {"controller"=>"admin/companies", "action"=>"index"}
+  [4;36;1mAccount Columns (0.009783)[0m   [0;1mSHOW FIELDS FROM `accounts`[0m
+  [4;35;1mAccount Load (0.002381)[0m   [0mSELECT * FROM `accounts` WHERE (`accounts`.`id` = 1) LIMIT 1[0m
+  [4;36;1mJoin Table Columns (0.008343)[0m   [0;1mSHOW FIELDS FROM `accounts_roles`[0m
+  [4;35;1mRole Load (0.001664)[0m   [0mSELECT * FROM `roles` INNER JOIN `accounts_roles` ON `roles`.id = `accounts_roles`.role_id WHERE (`accounts_roles`.account_id = 1 ) [0m
+  [4;36;1mRole Columns (0.007210)[0m   [0;1mSHOW FIELDS FROM `roles`[0m
+  [4;35;1mCompany Load (0.003818)[0m   [0mSELECT * FROM `companies` ORDER BY created_at DESC[0m
+Rendering template within layouts/admin
+Rendering admin/companies/index
+  [4;36;1mCompany Columns (0.009750)[0m   [0;1mSHOW FIELDS FROM `companies`[0m
+  [4;35;1mCategory Columns (0.008116)[0m   [0mSHOW FIELDS FROM `categories`[0m
+  [4;36;1mCategory Load (0.001270)[0m   [0;1mSELECT * FROM `categories` WHERE (`categories`.`id` = 2) [0m
+  [4;35;1mCategory Load (0.001319)[0m   [0mSELECT * FROM `categories` WHERE (`categories`.`id` = 3) [0m
+  [4;36;1mCACHE (0.000000)[0m   [0;1mSELECT * FROM `categories` WHERE (`categories`.`id` = 2) [0m
+  [4;35;1mCategory Load (0.001322)[0m   [0mSELECT * FROM `categories` WHERE (`categories`.`id` = 1) [0m
+Completed in 0.25376 (3 reqs/sec) | Rendering: 0.14536 (57%) | DB: 0.05498 (21%) | 200 OK [http://localhost/admin/company]
+
+
+Processing CompaniesController#destroy (for 127.0.0.1 at 2010-03-14 15:07:56) [DELETE]
+  Session ID: BAh7CSIKZmxhc2hJQzonQWN0aW9uQ29udHJvbGxlcjo6Rmxhc2g6OkZsYXNo
+SGFzaHsABjoKQHVzZWR7ADoMY3NyZl9pZCIlZWYzMjMyZjFiYmE3YjI2Mzg0
+NWZkMTM3NWRlMjRmMDI6D2FjY291bnRfaWRpBjoOcmV0dXJuX3RvMA==--6c0c0c449e6035610aee846d527272fce1737eaa
+  Parameters: {"_method"=>"delete", "authenticity_token"=>"836992cd65c9aa197ebbe4191944682e260420c9", "controller"=>"admin/companies", "action"=>"destroy", "company_id"=>"4"}
+  [4;36;1mAccount Columns (0.011277)[0m   [0;1mSHOW FIELDS FROM `accounts`[0m
+  [4;35;1mAccount Load (0.002151)[0m   [0mSELECT * FROM `accounts` WHERE (`accounts`.`id` = 1) LIMIT 1[0m
+  [4;36;1mJoin Table Columns (0.008049)[0m   [0;1mSHOW FIELDS FROM `accounts_roles`[0m
+  [4;35;1mRole Load (0.001684)[0m   [0mSELECT * FROM `roles` INNER JOIN `accounts_roles` ON `roles`.id = `accounts_roles`.role_id WHERE (`accounts_roles`.account_id = 1 ) [0m
+  [4;36;1mRole Columns (0.007889)[0m   [0;1mSHOW FIELDS FROM `roles`[0m
+  [4;35;1mCompany Columns (0.010058)[0m   [0mSHOW FIELDS FROM `companies`[0m
+  [4;36;1mCompany Load (0.002531)[0m   [0;1mSELECT * FROM `companies` WHERE (`companies`.`id` = 4) [0m
+  [4;35;1mSQL (0.000636)[0m   [0mBEGIN[0m
+  [4;36;1mCompany Destroy (0.036297)[0m   [0;1m DELETE FROM `companies`
+ WHERE `id` = 4
+[0m
+  [4;35;1mSQL (0.033097)[0m   [0mCOMMIT[0m
+Redirected to http://localhost:3000/admin/company
+Completed in 0.17666 (5 reqs/sec) | DB: 0.11367 (64%) | 302 Found [http://localhost/admin/company/4]
+
+
+Processing CompaniesController#index (for 127.0.0.1 at 2010-03-14 15:07:56) [GET]
+  Session ID: BAh7CSIKZmxhc2hJQzonQWN0aW9uQ29udHJvbGxlcjo6Rmxhc2g6OkZsYXNo
+SGFzaHsGOgtub3RpY2UiF+WIoOmZpOWFrOWPuOaIkOWKnwY6CkB1c2VkewY7
+BkY6DGNzcmZfaWQiJWVmMzIzMmYxYmJhN2IyNjM4NDVmZDEzNzVkZTI0ZjAy
+Og9hY2NvdW50X2lkaQY6DnJldHVybl90bzA=--9710b3bdbde7c1a87a64e3afec73a3a8b4fb0196
+  Parameters: {"controller"=>"admin/companies", "action"=>"index"}
+  [4;36;1mAccount Columns (0.009193)[0m   [0;1mSHOW FIELDS FROM `accounts`[0m
+  [4;35;1mAccount Load (0.002521)[0m   [0mSELECT * FROM `accounts` WHERE (`accounts`.`id` = 1) LIMIT 1[0m
+  [4;36;1mJoin Table Columns (0.008222)[0m   [0;1mSHOW FIELDS FROM `accounts_roles`[0m
+  [4;35;1mRole Load (0.001656)[0m   [0mSELECT * FROM `roles` INNER JOIN `accounts_roles` ON `roles`.id = `accounts_roles`.role_id WHERE (`accounts_roles`.account_id = 1 ) [0m
+  [4;36;1mRole Columns (0.008879)[0m   [0;1mSHOW FIELDS FROM `roles`[0m
+  [4;35;1mCompany Load (0.002792)[0m   [0mSELECT * FROM `companies` ORDER BY created_at DESC[0m
+Rendering template within layouts/admin
+Rendering admin/companies/index
+  [4;36;1mCompany Columns (0.009801)[0m   [0;1mSHOW FIELDS FROM `companies`[0m
+  [4;35;1mCategory Columns (0.008337)[0m   [0mSHOW FIELDS FROM `categories`[0m
+  [4;36;1mCategory Load (0.001275)[0m   [0;1mSELECT * FROM `categories` WHERE (`categories`.`id` = 3) [0m
+  [4;35;1mCategory Load (0.001355)[0m   [0mSELECT * FROM `categories` WHERE (`categories`.`id` = 2) [0m
+  [4;36;1mCategory Load (0.001348)[0m   [0;1mSELECT * FROM `categories` WHERE (`categories`.`id` = 1) [0m
+Completed in 0.26679 (3 reqs/sec) | Rendering: 0.17389 (65%) | DB: 0.05538 (20%) | 200 OK [http://localhost/admin/company]
+
+
+Processing CompaniesController#edit (for 127.0.0.1 at 2010-03-14 15:08:26) [GET]
+  Session ID: BAh7CSIKZmxhc2hJQzonQWN0aW9uQ29udHJvbGxlcjo6Rmxhc2g6OkZsYXNo
+SGFzaHsGOgtub3RpY2UiF+WIoOmZpOWFrOWPuOaIkOWKnwY6CkB1c2VkewY7
+BlQ6DGNzcmZfaWQiJWVmMzIzMmYxYmJhN2IyNjM4NDVmZDEzNzVkZTI0ZjAy
+Og9hY2NvdW50X2lkaQY6DnJldHVybl90bzA=--cf3148b853a004b2357e32e78faa8d0bfc8e9c87
+  Parameters: {"controller"=>"admin/companies", "action"=>"edit", "company_id"=>"3"}
+  [4;35;1mAccount Columns (0.010016)[0m   [0mSHOW FIELDS FROM `accounts`[0m
+  [4;36;1mAccount Load (0.002140)[0m   [0;1mSELECT * FROM `accounts` WHERE (`accounts`.`id` = 1) LIMIT 1[0m
+  [4;35;1mJoin Table Columns (0.008319)[0m   [0mSHOW FIELDS FROM `accounts_roles`[0m
+  [4;36;1mRole Load (0.001643)[0m   [0;1mSELECT * FROM `roles` INNER JOIN `accounts_roles` ON `roles`.id = `accounts_roles`.role_id WHERE (`accounts_roles`.account_id = 1 ) [0m
+  [4;35;1mRole Columns (0.008076)[0m   [0mSHOW FIELDS FROM `roles`[0m
+  [4;36;1mCompany Columns (0.009691)[0m   [0;1mSHOW FIELDS FROM `companies`[0m
+  [4;35;1mCompany Load (0.002523)[0m   [0mSELECT * FROM `companies` WHERE (`companies`.`id` = 3) [0m
+  [4;36;1mCategory Load (0.001523)[0m   [0;1mSELECT * FROM `categories` [0m
+Rendering template within layouts/admin
+Rendering admin/companies/edit
+  [4;35;1mCategory Columns (0.008559)[0m   [0mSHOW FIELDS FROM `categories`[0m
+Completed in 0.23985 (4 reqs/sec) | Rendering: 0.10918 (45%) | DB: 0.05249 (21%) | 200 OK [http://localhost/admin/company/3/edit]
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2010-03-14 15:08:38) [POST]
+  Session ID: BAh7CSIKZmxhc2hJQzonQWN0aW9uQ29udHJvbGxlcjo6Rmxhc2g6OkZsYXNo
+SGFzaHsABjoKQHVzZWR7ADoMY3NyZl9pZCIlZWYzMjMyZjFiYmE3YjI2Mzg0
+NWZkMTM3NWRlMjRmMDI6D2FjY291bnRfaWRpBjoOcmV0dXJuX3RvMA==--6c0c0c449e6035610aee846d527272fce1737eaa
+  Parameters: {"authenticity_token"=>"836992cd65c9aa197ebbe4191944682e260420c9", "company"=>{"name"=>"IBM", "introduction"=>"aaa", "contact_person"=>"aaa", "tel"=>"aaa", "mobile"=>"", "email"=>"", "qq"=>"", "msn"=>"", "fax"=>"", "address"=>"", "zip"=>"", "site"=>"", "remark"=>"aaa", "category_id"=>"1"}, "commit"=>"更新"}
+
+
+ActionController::MethodNotAllowed (Only get and put requests are allowed.):
+    F:/netbeans6.5/ruby2/jruby-1.1.4/lib/ruby/gems/1.8/gems/actionpack-2.1.0/lib/action_controller/routing/recognition_optimisation.rb:65:in `recognize_path'
+    F:/netbeans6.5/ruby2/jruby-1.1.4/lib/ruby/gems/1.8/gems/actionpack-2.1.0/lib/action_controller/routing/route_set.rb:384:in `recognize'
+    F:/netbeans6.5/ruby2/jruby-1.1.4/lib/ruby/gems/1.8/gems/actionpack-2.1.0/lib/action_controller/dispatcher.rb:148:in `handle_request'
+    F:/netbeans6.5/ruby2/jruby-1.1.4/lib/ruby/gems/1.8/gems/actionpack-2.1.0/lib/action_controller/dispatcher.rb:107:in `dispatch'
+    F:/netbeans6.5/ruby2/jruby-1.1.4/lib/ruby/gems/1.8/gems/actionpack-2.1.0/lib/action_controller/dispatcher.rb:104:in `dispatch'
+    F:/netbeans6.5/ruby2/jruby-1.1.4/lib/ruby/gems/1.8/gems/actionpack-2.1.0/lib/action_controller/dispatcher.rb:120:in `dispatch_cgi'
+    F:/netbeans6.5/ruby2/jruby-1.1.4/lib/ruby/gems/1.8/gems/actionpack-2.1.0/lib/action_controller/dispatcher.rb:35:in `dispatch'
+    F:/netbeans6.5/ruby2/jruby-1.1.4/lib/ruby/gems/1.8/gems/rails-2.1.0/lib/webrick_server.rb:112:in `handle_dispatch'
+    F:/netbeans6.5/ruby2/jruby-1.1.4/lib/ruby/gems/1.8/gems/rails-2.1.0/lib/webrick_server.rb:78:in `service'
+    F:/netbeans6.5/ruby2/jruby-1.1.4/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+    F:/netbeans6.5/ruby2/jruby-1.1.4/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+    F:/netbeans6.5/ruby2/jruby-1.1.4/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+    :1:in `start'
+
+Rendering F:/netbeans6.5/ruby2/jruby-1.1.4/lib/ruby/gems/1.8/gems/actionpack-2.1.0/lib/action_controller/templates/rescues/layout.erb (method_not_allowed)
+
+
+Processing CompaniesController#edit (for 127.0.0.1 at 2010-03-14 15:09:45) [GET]
+  Session ID: BAh7CSIKZmxhc2hJQzonQWN0aW9uQ29udHJvbGxlcjo6Rmxhc2g6OkZsYXNo
+SGFzaHsABjoKQHVzZWR7ADoMY3NyZl9pZCIlZWYzMjMyZjFiYmE3YjI2Mzg0
+NWZkMTM3NWRlMjRmMDI6D2FjY291bnRfaWRpBjoOcmV0dXJuX3RvMA==--6c0c0c449e6035610aee846d527272fce1737eaa
+  Parameters: {"controller"=>"admin/companies", "action"=>"edit", "company_id"=>"3"}
+  [4;36;1mAccount Columns (0.009266)[0m   [0;1mSHOW FIELDS FROM `accounts`[0m
+  [4;35;1mAccount Load (0.002126)[0m   [0mSELECT * FROM `accounts` WHERE (`accounts`.`id` = 1) LIMIT 1[0m
+  [4;36;1mJoin Table Columns (0.008194)[0m   [0;1mSHOW FIELDS FROM `accounts_roles`[0m
+  [4;35;1mRole Load (0.001657)[0m   [0mSELECT * FROM `roles` INNER JOIN `accounts_roles` ON `roles`.id = `accounts_roles`.role_id WHERE (`accounts_roles`.account_id = 1 ) [0m
+  [4;36;1mRole Columns (0.007922)[0m   [0;1mSHOW FIELDS FROM `roles`[0m
+  [4;35;1mCompany Columns (0.010281)[0m   [0mSHOW FIELDS FROM `companies`[0m
+  [4;36;1mCompany Load (0.002482)[0m   [0;1mSELECT * FROM `companies` WHERE (`companies`.`id` = 3) [0m
+  [4;35;1mCategory Load (0.001363)[0m   [0mSELECT * FROM `categories` [0m
+Rendering template within layouts/admin
+Rendering admin/companies/edit
+  [4;36;1mCategory Columns (0.008391)[0m   [0;1mSHOW FIELDS FROM `categories`[0m
+Completed in 0.27649 (3 reqs/sec) | Rendering: 0.16491 (59%) | DB: 0.05168 (18%) | 200 OK [http://localhost/admin/company/3/edit]
+
+
+Processing CompaniesController#edit (for 127.0.0.1 at 2010-03-14 15:10:31) [GET]
+  Session ID: BAh7CSIKZmxhc2hJQzonQWN0aW9uQ29udHJvbGxlcjo6Rmxhc2g6OkZsYXNo
+SGFzaHsABjoKQHVzZWR7ADoMY3NyZl9pZCIlZWYzMjMyZjFiYmE3YjI2Mzg0
+NWZkMTM3NWRlMjRmMDI6D2FjY291bnRfaWRpBjoOcmV0dXJuX3RvMA==--6c0c0c449e6035610aee846d527272fce1737eaa
+  Parameters: {"controller"=>"admin/companies", "action"=>"edit", "company_id"=>"3"}
+  [4;35;1mAccount Columns (0.009890)[0m   [0mSHOW FIELDS FROM `accounts`[0m
+  [4;36;1mAccount Load (0.002125)[0m   [0;1mSELECT * FROM `accounts` WHERE (`accounts`.`id` = 1) LIMIT 1[0m
+  [4;35;1mJoin Table Columns (0.006081)[0m   [0mSHOW FIELDS FROM `accounts_roles`[0m
+  [4;36;1mRole Load (0.030873)[0m   [0;1mSELECT * FROM `roles` INNER JOIN `accounts_roles` ON `roles`.id = `accounts_roles`.role_id WHERE (`accounts_roles`.account_id = 1 ) [0m
+  [4;35;1mRole Columns (0.005650)[0m   [0mSHOW FIELDS FROM `roles`[0m
+  [4;36;1mCompany Columns (0.009270)[0m   [0;1mSHOW FIELDS FROM `companies`[0m
+  [4;35;1mCompany Load (0.005096)[0m   [0mSELECT * FROM `companies` WHERE (`companies`.`id` = 3) [0m
+  [4;36;1mCategory Load (0.001541)[0m   [0;1mSELECT * FROM `categories` [0m
+Rendering template within layouts/admin
+Rendering admin/companies/edit
+  [4;35;1mCategory Columns (0.008191)[0m   [0mSHOW FIELDS FROM `categories`[0m
+Completed in 0.20302 (4 reqs/sec) | Rendering: 0.06749 (33%) | DB: 0.07872 (38%) | 200 OK [http://localhost/admin/company/3/edit]
+
+
+Processing CompaniesController#edit (for 127.0.0.1 at 2010-03-14 15:11:35) [GET]
+  Session ID: BAh7CSIKZmxhc2hJQzonQWN0aW9uQ29udHJvbGxlcjo6Rmxhc2g6OkZsYXNo
+SGFzaHsABjoKQHVzZWR7ADoMY3NyZl9pZCIlZWYzMjMyZjFiYmE3YjI2Mzg0
+NWZkMTM3NWRlMjRmMDI6D2FjY291bnRfaWRpBjoOcmV0dXJuX3RvMA==--6c0c0c449e6035610aee846d527272fce1737eaa
+  Parameters: {"controller"=>"admin/companies", "action"=>"edit", "company_id"=>"3"}
+  [4;36;1mAccount Columns (0.010530)[0m   [0;1mSHOW FIELDS FROM `accounts`[0m
+  [4;35;1mAccount Load (0.002175)[0m   [0mSELECT * FROM `accounts` WHERE (`accounts`.`id` = 1) LIMIT 1[0m
+  [4;36;1mJoin Table Columns (0.008295)[0m   [0;1mSHOW FIELDS FROM `accounts_roles`[0m
+  [4;35;1mRole Load (0.002283)[0m   [0mSELECT * FROM `roles` INNER JOIN `accounts_roles` ON `roles`.id = `accounts_roles`.role_id WHERE (`accounts_roles`.account_id = 1 ) [0m
+  [4;36;1mRole Columns (0.024387)[0m   [0;1mSHOW FIELDS FROM `roles`[0m
+  [4;35;1mCompany Columns (0.009840)[0m   [0mSHOW FIELDS FROM `companies`[0m
+  [4;36;1mCompany Load (0.002466)[0m   [0;1mSELECT * FROM `companies` WHERE (`companies`.`id` = 3) [0m
+  [4;35;1mCategory Load (0.001507)[0m   [0mSELECT * FROM `categories` [0m
+Rendering template within layouts/admin
+Rendering admin/companies/edit
+  [4;36;1mCategory Columns (0.009156)[0m   [0;1mSHOW FIELDS FROM `categories`[0m
+Completed in 0.21800 (4 reqs/sec) | Rendering: 0.08623 (39%) | DB: 0.07064 (32%) | 200 OK [http://localhost/admin/company/3/edit]
+
+
+Processing CompaniesController#update (for 127.0.0.1 at 2010-03-14 15:12:03) [PUT]
+  Session ID: BAh7CSIKZmxhc2hJQzonQWN0aW9uQ29udHJvbGxlcjo6Rmxhc2g6OkZsYXNo
+SGFzaHsABjoKQHVzZWR7ADoMY3NyZl9pZCIlZWYzMjMyZjFiYmE3YjI2Mzg0
+NWZkMTM3NWRlMjRmMDI6D2FjY291bnRfaWRpBjoOcmV0dXJuX3RvMA==--6c0c0c449e6035610aee846d527272fce1737eaa
+  Parameters: {"_method"=>"put", "authenticity_token"=>"836992cd65c9aa197ebbe4191944682e260420c9", "company"=>{"name"=>"IBM", "introduction"=>"aaaa", "contact_person"=>"aaaa", "tel"=>"aaaa", "mobile"=>"aaaa", "email"=>"aaaa", "qq"=>"aaaa", "msn"=>"", "fax"=>"", "address"=>"", "zip"=>"", "site"=>"", "remark"=>"aaaa", "category_id"=>"1"}, "commit"=>"更新", "controller"=>"admin/companies", "action"=>"update", "company_id"=>"3"}
+  [4;35;1mAccount Columns (0.009460)[0m   [0mSHOW FIELDS FROM `accounts`[0m
+  [4;36;1mAccount Load (0.002885)[0m   [0;1mSELECT * FROM `accounts` WHERE (`accounts`.`id` = 1) LIMIT 1[0m
+  [4;35;1mJoin Table Columns (0.008484)[0m   [0mSHOW FIELDS FROM `accounts_roles`[0m
+  [4;36;1mRole Load (0.001742)[0m   [0;1mSELECT * FROM `roles` INNER JOIN `accounts_roles` ON `roles`.id = `accounts_roles`.role_id WHERE (`accounts_roles`.account_id = 1 ) [0m
+  [4;35;1mRole Columns (0.008223)[0m   [0mSHOW FIELDS FROM `roles`[0m
+  [4;36;1mCompany Columns (0.010147)[0m   [0;1mSHOW FIELDS FROM `companies`[0m
+  [4;35;1mCompany Load (0.002482)[0m   [0mSELECT * FROM `companies` WHERE (`companies`.`id` = 3) [0m
+  [4;36;1mSQL (0.000518)[0m   [0;1mBEGIN[0m
+  [4;35;1mSQL (0.000544)[0m   [0mCOMMIT[0m
+
+
+NoMethodError (undefined method `record' for #<Company:0x112022e>):
+    F:/netbeans6.5/ruby2/jruby-1.1.4/lib/ruby/gems/1.8/gems/activerecord-2.1.0/lib/active_record/attribute_methods.rb:256:in `method_missing'
+    /app/controllers/admin/companies_controller.rb:38:in `update'
+    F:/netbeans6.5/ruby2/jruby-1.1.4/lib/ruby/gems/1.8/gems/actionpack-2.1.0/lib/action_controller/base.rb:1162:in `perform_action'
+    F:/netbeans6.5/ruby2/jruby-1.1.4/lib/ruby/gems/1.8/gems/actionpack-2.1.0/lib/action_controller/filters.rb:580:in `call_filters'
+    F:/netbeans6.5/ruby2/jruby-1.1.4/lib/ruby/gems/1.8/gems/actionpack-2.1.0/lib/action_controller/filters.rb:573:in `perform_action_with_filters'
+    F:/netbeans6.5/ruby2/jruby-1.1.4/lib/ruby/gems/1.8/gems/actionpack-2.1.0/lib/action_controller/benchmarking.rb:68:in `perform_action_with_benchmark'
+    F:/netbeans6.5/ruby2/jruby-1.1.4/lib/ruby/1.8/benchmark.rb:293:in `measure'
+    F:/netbeans6.5/ruby2/jruby-1.1.4/lib/ruby/gems/1.8/gems/actionpack-2.1.0/lib/action_controller/benchmarking.rb:68:in `perform_action_with_benchmark'
+    F:/netbeans6.5/ruby2/jruby-1.1.4/lib/ruby/gems/1.8/gems/actionpack-2.1.0/lib/action_controller/rescue.rb:201:in `perform_action_with_rescue'
+    F:/netbeans6.5/ruby2/jruby-1.1.4/lib/ruby/gems/1.8/gems/actionpack-2.1.0/lib/action_controller/caching/sql_cache.rb:13:in `perform_action_with_caching'
+    F:/netbeans6.5/ruby2/jruby-1.1.4/lib/ruby/gems/1.8/gems/activerecord-2.1.0/lib/active_record/connection_adapters/abstract/query_cache.rb:33:in `cache'
+    F:/netbeans6.5/ruby2/jruby-1.1.4/lib/ruby/gems/1.8/gems/activerecord-2.1.0/lib/active_record/query_cache.rb:8:in `cache'
+    F:/netbeans6.5/ruby2/jruby-1.1.4/lib/ruby/gems/1.8/gems/actionpack-2.1.0/lib/action_controller/caching/sql_cache.rb:12:in `perform_action_with_caching'
+    F:/netbeans6.5/ruby2/jruby-1.1.4/lib/ruby/gems/1.8/gems/actionpack-2.1.0/lib/action_controller/base.rb:529:in `process'
+    F:/netbeans6.5/ruby2/jruby-1.1.4/lib/ruby/gems/1.8/gems/actionpack-2.1.0/lib/action_controller/filters.rb:569:in `process_with_filters'
+    F:/netbeans6.5/ruby2/jruby-1.1.4/lib/ruby/gems/1.8/gems/actionpack-2.1.0/lib/action_controller/session_management.rb:130:in `process_with_session_management_support'
+    F:/netbeans6.5/ruby2/jruby-1.1.4/lib/ruby/gems/1.8/gems/actionpack-2.1.0/lib/action_controller/base.rb:389:in `process'
+    F:/netbeans6.5/ruby2/jruby-1.1.4/lib/ruby/gems/1.8/gems/actionpack-2.1.0/lib/action_controller/dispatcher.rb:149:in `handle_request'
+    F:/netbeans6.5/ruby2/jruby-1.1.4/lib/ruby/gems/1.8/gems/actionpack-2.1.0/lib/action_controller/dispatcher.rb:107:in `dispatch'
+    F:/netbeans6.5/ruby2/jruby-1.1.4/lib/ruby/gems/1.8/gems/actionpack-2.1.0/lib/action_controller/dispatcher.rb:104:in `dispatch'
+    F:/netbeans6.5/ruby2/jruby-1.1.4/lib/ruby/gems/1.8/gems/actionpack-2.1.0/lib/action_controller/dispatcher.rb:120:in `dispatch_cgi'
+    F:/netbeans6.5/ruby2/jruby-1.1.4/lib/ruby/gems/1.8/gems/actionpack-2.1.0/lib/action_controller/dispatcher.rb:35:in `dispatch'
+    F:/netbeans6.5/ruby2/jruby-1.1.4/lib/ruby/gems/1.8/gems/rails-2.1.0/lib/webrick_server.rb:112:in `handle_dispatch'
+    F:/netbeans6.5/ruby2/jruby-1.1.4/lib/ruby/gems/1.8/gems/rails-2.1.0/lib/webrick_server.rb:78:in `service'
+    F:/netbeans6.5/ruby2/jruby-1.1.4/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+    F:/netbeans6.5/ruby2/jruby-1.1.4/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+    F:/netbeans6.5/ruby2/jruby-1.1.4/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+    :1:in `start'
+
+Rendering F:/netbeans6.5/ruby2/jruby-1.1.4/lib/ruby/gems/1.8/gems/actionpack-2.1.0/lib/action_controller/templates/rescues/layout.erb (internal_server_error)
+
+
+Processing CompaniesController#edit (for 127.0.0.1 at 2010-03-14 15:12:45) [GET]
+  Session ID: BAh7CSIKZmxhc2hJQzonQWN0aW9uQ29udHJvbGxlcjo6Rmxhc2g6OkZsYXNo
+SGFzaHsGOgtub3RpY2UiIOeUqOaIt+S/oeaBr+S/ruaUueW3suS/neWtmAY6
+CkB1c2VkewY7BkY6DGNzcmZfaWQiJWVmMzIzMmYxYmJhN2IyNjM4NDVmZDEz
+NzVkZTI0ZjAyOg9hY2NvdW50X2lkaQY6DnJldHVybl90bzA=--97946f29617e07f5eaf1c34f224c7d220b62f81a
+  Parameters: {"controller"=>"admin/companies", "action"=>"edit", "company_id"=>"3"}
+  [4;36;1mAccount Columns (0.009429)[0m   [0;1mSHOW FIELDS FROM `accounts`[0m
+  [4;35;1mAccount Load (0.002149)[0m   [0mSELECT * FROM `accounts` WHERE (`accounts`.`id` = 1) LIMIT 1[0m
+  [4;36;1mJoin Table Columns (0.008443)[0m   [0;1mSHOW FIELDS FROM `accounts_roles`[0m
+  [4;35;1mRole Load (0.001752)[0m   [0mSELECT * FROM `roles` INNER JOIN `accounts_roles` ON `roles`.id = `accounts_roles`.role_id WHERE (`accounts_roles`.account_id = 1 ) [0m
+  [4;36;1mRole Columns (0.009041)[0m   [0;1mSHOW FIELDS FROM `roles`[0m
+  [4;35;1mCompany Columns (0.010364)[0m   [0mSHOW FIELDS FROM `companies`[0m
+  [4;36;1mCompany Load (0.002504)[0m   [0;1mSELECT * FROM `companies` WHERE (`companies`.`id` = 3) [0m
+  [4;35;1mCategory Load (0.001514)[0m   [0mSELECT * FROM `categories` [0m
+Rendering template within layouts/admin
+Rendering admin/companies/edit
+  [4;36;1mCategory Columns (0.008394)[0m   [0;1mSHOW FIELDS FROM `categories`[0m
+Completed in 0.18349 (5 reqs/sec) | Rendering: 0.07046 (38%) | DB: 0.09807 (53%) | 200 OK [http://localhost/admin/company/3/edit]
+
+
+Processing CompaniesController#index (for 127.0.0.1 at 2010-03-14 15:12:47) [GET]
+  Session ID: BAh7CSIKZmxhc2hJQzonQWN0aW9uQ29udHJvbGxlcjo6Rmxhc2g6OkZsYXNo
+SGFzaHsGOgtub3RpY2UiIOeUqOaIt+S/oeaBr+S/ruaUueW3suS/neWtmAY6
+CkB1c2VkewY7BlQ6DGNzcmZfaWQiJWVmMzIzMmYxYmJhN2IyNjM4NDVmZDEz
+NzVkZTI0ZjAyOg9hY2NvdW50X2lkaQY6DnJldHVybl90bzA=--eea28f80623a81c28b4c87c7e5091309da64d726
+  Parameters: {"controller"=>"admin/companies", "action"=>"index"}
+  [4;35;1mAccount Columns (0.011175)[0m   [0mSHOW FIELDS FROM `accounts`[0m
+  [4;36;1mAccount Load (0.003313)[0m   [0;1mSELECT * FROM `accounts` WHERE (`accounts`.`id` = 1) LIMIT 1[0m
+  [4;35;1mJoin Table Columns (0.008806)[0m   [0mSHOW FIELDS FROM `accounts_roles`[0m
+  [4;36;1mRole Load (0.001660)[0m   [0;1mSELECT * FROM `roles` INNER JOIN `accounts_roles` ON `roles`.id = `accounts_roles`.role_id WHERE (`accounts_roles`.account_id = 1 ) [0m
+  [4;35;1mRole Columns (0.008190)[0m   [0mSHOW FIELDS FROM `roles`[0m
+  [4;36;1mCompany Load (0.002737)[0m   [0;1mSELECT * FROM `companies` ORDER BY created_at DESC[0m
+Rendering template within layouts/admin
+Rendering admin/companies/index
+  [4;35;1mCompany Columns (0.009411)[0m   [0mSHOW FIELDS FROM `companies`[0m
+  [4;36;1mCategory Columns (0.008096)[0m   [0;1mSHOW FIELDS FROM `categories`[0m
+  [4;35;1mCategory Load (0.001296)[0m   [0mSELECT * FROM `categories` WHERE (`categories`.`id` = 3) [0m
+  [4;36;1mCategory Load (0.001347)[0m   [0;1mSELECT * FROM `categories` WHERE (`categories`.`id` = 2) [0m
+  [4;35;1mCategory Load (0.001355)[0m   [0mSELECT * FROM `categories` WHERE (`categories`.`id` = 1) [0m
+Completed in 0.19842 (5 reqs/sec) | Rendering: 0.09786 (49%) | DB: 0.05739 (28%) | 200 OK [http://localhost/admin/company]
+
+
+Processing CompaniesController#index (for 127.0.0.1 at 2010-03-14 15:12:50) [GET]
+  Session ID: BAh7CSIKZmxhc2hJQzonQWN0aW9uQ29udHJvbGxlcjo6Rmxhc2g6OkZsYXNo
+SGFzaHsABjoKQHVzZWR7ADoMY3NyZl9pZCIlZWYzMjMyZjFiYmE3YjI2Mzg0
+NWZkMTM3NWRlMjRmMDI6D2FjY291bnRfaWRpBjoOcmV0dXJuX3RvMA==--6c0c0c449e6035610aee846d527272fce1737eaa
+  Parameters: {"controller"=>"admin/companies", "action"=>"index"}
+  [4;36;1mAccount Columns (0.009037)[0m   [0;1mSHOW FIELDS FROM `accounts`[0m
+  [4;35;1mAccount Load (0.002162)[0m   [0mSELECT * FROM `accounts` WHERE (`accounts`.`id` = 1) LIMIT 1[0m
+  [4;36;1mJoin Table Columns (0.008204)[0m   [0;1mSHOW FIELDS FROM `accounts_roles`[0m
+  [4;35;1mRole Load (0.002364)[0m   [0mSELECT * FROM `roles` INNER JOIN `accounts_roles` ON `roles`.id = `accounts_roles`.role_id WHERE (`accounts_roles`.account_id = 1 ) [0m
+  [4;36;1mRole Columns (0.008097)[0m   [0;1mSHOW FIELDS FROM `roles`[0m
+  [4;35;1mCompany Load (0.002734)[0m   [0mSELECT * FROM `companies` ORDER BY created_at DESC[0m
+Rendering template within layouts/admin
+Rendering admin/companies/index
+  [4;36;1mCompany Columns (0.009383)[0m   [0;1mSHOW FIELDS FROM `companies`[0m
+  [4;35;1mCategory Columns (0.015231)[0m   [0mSHOW FIELDS FROM `categories`[0m
+  [4;36;1mCategory Load (0.001506)[0m   [0;1mSELECT * FROM `categories` WHERE (`categories`.`id` = 3) [0m
+  [4;35;1mCategory Load (0.001519)[0m   [0mSELECT * FROM `categories` WHERE (`categories`.`id` = 2) [0m
+  [4;36;1mCategory Load (0.001326)[0m   [0;1mSELECT * FROM `categories` WHERE (`categories`.`id` = 1) [0m
+Completed in 0.22190 (4 reqs/sec) | Rendering: 0.10503 (47%) | DB: 0.06156 (27%) | 200 OK [http://localhost/admin/company]
+
+
+Processing CompaniesController#edit (for 127.0.0.1 at 2010-03-14 15:12:52) [GET]
+  Session ID: BAh7CSIKZmxhc2hJQzonQWN0aW9uQ29udHJvbGxlcjo6Rmxhc2g6OkZsYXNo
+SGFzaHsABjoKQHVzZWR7ADoMY3NyZl9pZCIlZWYzMjMyZjFiYmE3YjI2Mzg0
+NWZkMTM3NWRlMjRmMDI6D2FjY291bnRfaWRpBjoOcmV0dXJuX3RvMA==--6c0c0c449e6035610aee846d527272fce1737eaa
+  Parameters: {"controller"=>"admin/companies", "action"=>"edit", "company_id"=>"3"}
+  [4;35;1mAccount Columns (0.009172)[0m   [0mSHOW FIELDS FROM `accounts`[0m
+  [4;36;1mAccount Load (0.002094)[0m   [0;1mSELECT * FROM `accounts` WHERE (`accounts`.`id` = 1) LIMIT 1[0m
+  [4;35;1mJoin Table Columns (0.009009)[0m   [0mSHOW FIELDS FROM `accounts_roles`[0m
+  [4;36;1mRole Load (0.001621)[0m   [0;1mSELECT * FROM `roles` INNER JOIN `accounts_roles` ON `roles`.id = `accounts_roles`.role_id WHERE (`accounts_roles`.account_id = 1 ) [0m
+  [4;35;1mRole Columns (0.008054)[0m   [0mSHOW FIELDS FROM `roles`[0m
+  [4;36;1mCompany Columns (0.009660)[0m   [0;1mSHOW FIELDS FROM `companies`[0m
+  [4;35;1mCompany Load (0.002636)[0m   [0mSELECT * FROM `companies` WHERE (`companies`.`id` = 3) [0m
+  [4;36;1mCategory Load (0.001491)[0m   [0;1mSELECT * FROM `categories` [0m
+Rendering template within layouts/admin
+Rendering admin/companies/edit
+  [4;35;1mCategory Columns (0.008468)[0m   [0mSHOW FIELDS FROM `categories`[0m
+Completed in 0.20051 (4 reqs/sec) | Rendering: 0.08909 (44%) | DB: 0.05221 (26%) | 200 OK [http://localhost/admin/company/3/edit]
+
+
+Processing CompaniesController#update (for 127.0.0.1 at 2010-03-14 15:13:05) [PUT]
+  Session ID: BAh7CSIKZmxhc2hJQzonQWN0aW9uQ29udHJvbGxlcjo6Rmxhc2g6OkZsYXNo
+SGFzaHsABjoKQHVzZWR7ADoMY3NyZl9pZCIlZWYzMjMyZjFiYmE3YjI2Mzg0
+NWZkMTM3NWRlMjRmMDI6D2FjY291bnRfaWRpBjoOcmV0dXJuX3RvMA==--6c0c0c449e6035610aee846d527272fce1737eaa
+  Parameters: {"_method"=>"put", "authenticity_token"=>"836992cd65c9aa197ebbe4191944682e260420c9", "company"=>{"name"=>"IBM", "introduction"=>"aaaa", "contact_person"=>"aaaa", "tel"=>"aaaa", "mobile"=>"aaaa", "email"=>"", "qq"=>"", "msn"=>"", "fax"=>"", "address"=>"", "zip"=>"", "site"=>"", "remark"=>"", "category_id"=>"1"}, "commit"=>"更新", "controller"=>"admin/companies", "action"=>"update", "company_id"=>"3"}
+  [4;36;1mAccount Columns (0.010444)[0m   [0;1mSHOW FIELDS FROM `accounts`[0m
+  [4;35;1mAccount Load (0.002203)[0m   [0mSELECT * FROM `accounts` WHERE (`accounts`.`id` = 1) LIMIT 1[0m
+  [4;36;1mJoin Table Columns (0.008152)[0m   [0;1mSHOW FIELDS FROM `accounts_roles`[0m
+  [4;35;1mRole Load (0.001646)[0m   [0mSELECT * FROM `roles` INNER JOIN `accounts_roles` ON `roles`.id = `accounts_roles`.role_id WHERE (`accounts_roles`.account_id = 1 ) [0m
+  [4;36;1mRole Columns (0.007920)[0m   [0;1mSHOW FIELDS FROM `roles`[0m
+  [4;35;1mCompany Columns (0.010481)[0m   [0mSHOW FIELDS FROM `companies`[0m
+  [4;36;1mCompany Load (0.002441)[0m   [0;1mSELECT * FROM `companies` WHERE (`companies`.`id` = 3) [0m
+  [4;35;1mSQL (0.000714)[0m   [0mBEGIN[0m
+  [4;36;1mSQL (0.000497)[0m   [0;1mCOMMIT[0m
+Redirected to http://localhost:3000/admin/company
+Completed in 0.09041 (11 reqs/sec) | DB: 0.04450 (49%) | 302 Found [http://localhost/admin/company/3/edit]
+
+
+Processing CompaniesController#index (for 127.0.0.1 at 2010-03-14 15:13:06) [GET]
+  Session ID: BAh7CSIKZmxhc2hJQzonQWN0aW9uQ29udHJvbGxlcjo6Rmxhc2g6OkZsYXNo
+SGFzaHsGOgtub3RpY2UiIOeUqOaIt+S/oeaBr+S/ruaUueW3suS/neWtmAY6
+CkB1c2VkewY7BkY6DGNzcmZfaWQiJWVmMzIzMmYxYmJhN2IyNjM4NDVmZDEz
+NzVkZTI0ZjAyOg9hY2NvdW50X2lkaQY6DnJldHVybl90bzA=--97946f29617e07f5eaf1c34f224c7d220b62f81a
+  Parameters: {"controller"=>"admin/companies", "action"=>"index"}
+  [4;35;1mAccount Columns (0.009348)[0m   [0mSHOW FIELDS FROM `accounts`[0m
+  [4;36;1mAccount Load (0.002136)[0m   [0;1mSELECT * FROM `accounts` WHERE (`accounts`.`id` = 1) LIMIT 1[0m
+  [4;35;1mJoin Table Columns (0.008059)[0m   [0mSHOW FIELDS FROM `accounts_roles`[0m
+  [4;36;1mRole Load (0.001597)[0m   [0;1mSELECT * FROM `roles` INNER JOIN `accounts_roles` ON `roles`.id = `accounts_roles`.role_id WHERE (`accounts_roles`.account_id = 1 ) [0m
+  [4;35;1mRole Columns (0.008604)[0m   [0mSHOW FIELDS FROM `roles`[0m
+  [4;36;1mCompany Load (0.002547)[0m   [0;1mSELECT * FROM `companies` ORDER BY created_at DESC[0m
+Rendering template within layouts/admin
+Rendering admin/companies/index
+  [4;35;1mCompany Columns (0.010248)[0m   [0mSHOW FIELDS FROM `companies`[0m
+  [4;36;1mCategory Columns (0.008292)[0m   [0;1mSHOW FIELDS FROM `categories`[0m
+  [4;35;1mCategory Load (0.001556)[0m   [0mSELECT * FROM `categories` WHERE (`categories`.`id` = 3) [0m
+  [4;36;1mCategory Load (0.001816)[0m   [0;1mSELECT * FROM `categories` WHERE (`categories`.`id` = 2) [0m
+  [4;35;1mCategory Load (0.001316)[0m   [0mSELECT * FROM `categories` WHERE (`categories`.`id` = 1) [0m
+Completed in 0.20455 (4 reqs/sec) | Rendering: 0.10552 (51%) | DB: 0.05552 (27%) | 200 OK [http://localhost/admin/company]
+
+
+Processing CompaniesController#edit (for 127.0.0.1 at 2010-03-14 15:13:44) [GET]
+  Session ID: BAh7CSIKZmxhc2hJQzonQWN0aW9uQ29udHJvbGxlcjo6Rmxhc2g6OkZsYXNo
+SGFzaHsGOgtub3RpY2UiIOeUqOaIt+S/oeaBr+S/ruaUueW3suS/neWtmAY6
+CkB1c2VkewY7BlQ6DGNzcmZfaWQiJWVmMzIzMmYxYmJhN2IyNjM4NDVmZDEz
+NzVkZTI0ZjAyOg9hY2NvdW50X2lkaQY6DnJldHVybl90bzA=--eea28f80623a81c28b4c87c7e5091309da64d726
+  Parameters: {"controller"=>"admin/companies", "action"=>"edit", "company_id"=>"3"}
+  [4;36;1mAccount Columns (0.010018)[0m   [0;1mSHOW FIELDS FROM `accounts`[0m
+  [4;35;1mAccount Load (0.004599)[0m   [0mSELECT * FROM `accounts` WHERE (`accounts`.`id` = 1) LIMIT 1[0m
+  [4;36;1mJoin Table Columns (0.008210)[0m   [0;1mSHOW FIELDS FROM `accounts_roles`[0m
+  [4;35;1mRole Load (0.001575)[0m   [0mSELECT * FROM `roles` INNER JOIN `accounts_roles` ON `roles`.id = `accounts_roles`.role_id WHERE (`accounts_roles`.account_id = 1 ) [0m
+  [4;36;1mRole Columns (0.008040)[0m   [0;1mSHOW FIELDS FROM `roles`[0m
+  [4;35;1mCompany Columns (0.009686)[0m   [0mSHOW FIELDS FROM `companies`[0m
+  [4;36;1mCompany Load (0.002226)[0m   [0;1mSELECT * FROM `companies` WHERE (`companies`.`id` = 3) [0m
+  [4;35;1mCategory Load (0.001626)[0m   [0mSELECT * FROM `categories` [0m
+Rendering template within layouts/admin
+Rendering admin/companies/edit
+  [4;36;1mCategory Columns (0.008408)[0m   [0;1mSHOW FIELDS FROM `categories`[0m
+Completed in 0.21637 (4 reqs/sec) | Rendering: 0.07104 (32%) | DB: 0.05439 (25%) | 200 OK [http://localhost/admin/company/3/edit]
+
+
+Processing CompaniesController#update (for 127.0.0.1 at 2010-03-14 15:13:55) [PUT]
+  Session ID: BAh7CSIKZmxhc2hJQzonQWN0aW9uQ29udHJvbGxlcjo6Rmxhc2g6OkZsYXNo
+SGFzaHsABjoKQHVzZWR7ADoMY3NyZl9pZCIlZWYzMjMyZjFiYmE3YjI2Mzg0
+NWZkMTM3NWRlMjRmMDI6D2FjY291bnRfaWRpBjoOcmV0dXJuX3RvMA==--6c0c0c449e6035610aee846d527272fce1737eaa
+  Parameters: {"_method"=>"put", "authenticity_token"=>"836992cd65c9aa197ebbe4191944682e260420c9", "company"=>{"name"=>"IBM", "introduction"=>"", "contact_person"=>"aaaa", "tel"=>"aaaa", "mobile"=>"", "email"=>"", "qq"=>"", "msn"=>"", "fax"=>"", "address"=>"", "zip"=>"", "site"=>"", "remark"=>"", "category_id"=>"1"}, "commit"=>"更新", "controller"=>"admin/companies", "action"=>"update", "company_id"=>"3"}
+  [4;35;1mAccount Columns (0.009248)[0m   [0mSHOW FIELDS FROM `accounts`[0m
+  [4;36;1mAccount Load (0.002084)[0m   [0;1mSELECT * FROM `accounts` WHERE (`accounts`.`id` = 1) LIMIT 1[0m
+  [4;35;1mJoin Table Columns (0.008491)[0m   [0mSHOW FIELDS FROM `accounts_roles`[0m
+  [4;36;1mRole Load (0.001554)[0m   [0;1mSELECT * FROM `roles` INNER JOIN `accounts_roles` ON `roles`.id = `accounts_roles`.role_id WHERE (`accounts_roles`.account_id = 1 ) [0m
+  [4;35;1mRole Columns (0.007993)[0m   [0mSHOW FIELDS FROM `roles`[0m
+  [4;36;1mCompany Columns (0.009512)[0m   [0;1mSHOW FIELDS FROM `companies`[0m
+  [4;35;1mCompany Load (0.003619)[0m   [0mSELECT * FROM `companies` WHERE (`companies`.`id` = 3) [0m
+  [4;36;1mSQL (0.000608)[0m   [0;1mBEGIN[0m
+  [4;35;1mCompany Update (0.053311)[0m   [0mUPDATE `companies` SET `contact_person` = 'aaaa', `tel` = 'aaaa', `category_id` = 1, `updated_at` = '2010-03-14 07:13:55' WHERE `id` = 3[0m
+  [4;36;1mSQL (0.043474)[0m   [0;1mCOMMIT[0m
+Redirected to http://localhost:3000/admin/company
+Completed in 0.21024 (4 reqs/sec) | DB: 0.13989 (66%) | 302 Found [http://localhost/admin/company/3/edit]
+
+
+Processing CompaniesController#index (for 127.0.0.1 at 2010-03-14 15:13:56) [GET]
+  Session ID: BAh7CSIKZmxhc2hJQzonQWN0aW9uQ29udHJvbGxlcjo6Rmxhc2g6OkZsYXNo
+SGFzaHsGOgtub3RpY2UiIOeUqOaIt+S/oeaBr+S/ruaUueW3suS/neWtmAY6
+CkB1c2VkewY7BkY6DGNzcmZfaWQiJWVmMzIzMmYxYmJhN2IyNjM4NDVmZDEz
+NzVkZTI0ZjAyOg9hY2NvdW50X2lkaQY6DnJldHVybl90bzA=--97946f29617e07f5eaf1c34f224c7d220b62f81a
+  Parameters: {"controller"=>"admin/companies", "action"=>"index"}
+  [4;35;1mAccount Columns (0.009369)[0m   [0mSHOW FIELDS FROM `accounts`[0m
+  [4;36;1mAccount Load (0.002955)[0m   [0;1mSELECT * FROM `accounts` WHERE (`accounts`.`id` = 1) LIMIT 1[0m
+  [4;35;1mJoin Table Columns (0.008979)[0m   [0mSHOW FIELDS FROM `accounts_roles`[0m
+  [4;36;1mRole Load (0.001543)[0m   [0;1mSELECT * FROM `roles` INNER JOIN `accounts_roles` ON `roles`.id = `accounts_roles`.role_id WHERE (`accounts_roles`.account_id = 1 ) [0m
+  [4;35;1mRole Columns (0.007902)[0m   [0mSHOW FIELDS FROM `roles`[0m
+  [4;36;1mCompany Load (0.002609)[0m   [0;1mSELECT * FROM `companies` ORDER BY created_at DESC[0m
+Rendering template within layouts/admin
+Rendering admin/companies/index
+  [4;35;1mCompany Columns (0.009517)[0m   [0mSHOW FIELDS FROM `companies`[0m
+  [4;36;1mCategory Columns (0.007168)[0m   [0;1mSHOW FIELDS FROM `categories`[0m
+  [4;35;1mCategory Load (0.003374)[0m   [0mSELECT * FROM `categories` WHERE (`categories`.`id` = 1) [0m
+  [4;36;1mCategory Load (0.001365)[0m   [0;1mSELECT * FROM `categories` WHERE (`categories`.`id` = 2) [0m
+  [4;35;1mCACHE (0.000000)[0m   [0mSELECT * FROM `categories` WHERE (`categories`.`id` = 1) [0m
+Completed in 0.18940 (5 reqs/sec) | Rendering: 0.09416 (49%) | DB: 0.05478 (28%) | 200 OK [http://localhost/admin/company]
+
+
+Processing CompaniesController#edit (for 127.0.0.1 at 2010-03-14 15:13:58) [GET]
+  Session ID: BAh7CSIKZmxhc2hJQzonQWN0aW9uQ29udHJvbGxlcjo6Rmxhc2g6OkZsYXNo
+SGFzaHsGOgtub3RpY2UiIOeUqOaIt+S/oeaBr+S/ruaUueW3suS/neWtmAY6
+CkB1c2VkewY7BlQ6DGNzcmZfaWQiJWVmMzIzMmYxYmJhN2IyNjM4NDVmZDEz
+NzVkZTI0ZjAyOg9hY2NvdW50X2lkaQY6DnJldHVybl90bzA=--eea28f80623a81c28b4c87c7e5091309da64d726
+  Parameters: {"controller"=>"admin/companies", "action"=>"edit", "company_id"=>"3"}
+  [4;36;1mAccount Columns (0.009136)[0m   [0;1mSHOW FIELDS FROM `accounts`[0m
+  [4;35;1mAccount Load (0.002085)[0m   [0mSELECT * FROM `accounts` WHERE (`accounts`.`id` = 1) LIMIT 1[0m
+  [4;36;1mJoin Table Columns (0.008187)[0m   [0;1mSHOW FIELDS FROM `accounts_roles`[0m
+  [4;35;1mRole Load (0.001543)[0m   [0mSELECT * FROM `roles` INNER JOIN `accounts_roles` ON `roles`.id = `accounts_roles`.role_id WHERE (`accounts_roles`.account_id = 1 ) [0m
+  [4;36;1mRole Columns (0.008104)[0m   [0;1mSHOW FIELDS FROM `roles`[0m
+  [4;35;1mCompany Columns (0.017056)[0m   [0mSHOW FIELDS FROM `companies`[0m
+  [4;36;1mCompany Load (0.003396)[0m   [0;1mSELECT * FROM `companies` WHERE (`companies`.`id` = 3) [0m
+  [4;35;1mCategory Load (0.001426)[0m   [0mSELECT * FROM `categories` [0m
+Rendering template within layouts/admin
+Rendering admin/companies/edit
+  [4;36;1mCategory Columns (0.009709)[0m   [0;1mSHOW FIELDS FROM `categories`[0m
+Completed in 0.21728 (4 reqs/sec) | Rendering: 0.07315 (33%) | DB: 0.06064 (27%) | 200 OK [http://localhost/admin/company/3/edit]
+
+
+Processing CompaniesController#index (for 127.0.0.1 at 2010-03-14 15:14:05) [GET]
+  Session ID: BAh7CSIKZmxhc2hJQzonQWN0aW9uQ29udHJvbGxlcjo6Rmxhc2g6OkZsYXNo
+SGFzaHsABjoKQHVzZWR7ADoMY3NyZl9pZCIlZWYzMjMyZjFiYmE3YjI2Mzg0
+NWZkMTM3NWRlMjRmMDI6D2FjY291bnRfaWRpBjoOcmV0dXJuX3RvMA==--6c0c0c449e6035610aee846d527272fce1737eaa
+  Parameters: {"controller"=>"admin/companies", "action"=>"index"}
+  [4;35;1mAccount Columns (0.009164)[0m   [0mSHOW FIELDS FROM `accounts`[0m
+  [4;36;1mAccount Load (0.001962)[0m   [0;1mSELECT * FROM `accounts` WHERE (`accounts`.`id` = 1) LIMIT 1[0m
+  [4;35;1mJoin Table Columns (0.009224)[0m   [0mSHOW FIELDS FROM `accounts_roles`[0m
+  [4;36;1mRole Load (0.001557)[0m   [0;1mSELECT * FROM `roles` INNER JOIN `accounts_roles` ON `roles`.id = `accounts_roles`.role_id WHERE (`accounts_roles`.account_id = 1 ) [0m
+  [4;35;1mRole Columns (0.008280)[0m   [0mSHOW FIELDS FROM `roles`[0m
+  [4;36;1mCompany Load (0.002717)[0m   [0;1mSELECT * FROM `companies` ORDER BY created_at DESC[0m
+Rendering template within layouts/admin
+Rendering admin/companies/index
+  [4;35;1mCompany Columns (0.009588)[0m   [0mSHOW FIELDS FROM `companies`[0m
+  [4;36;1mCategory Columns (0.008347)[0m   [0;1mSHOW FIELDS FROM `categories`[0m
+  [4;35;1mCategory Load (0.002136)[0m   [0mSELECT * FROM `categories` WHERE (`categories`.`id` = 1) [0m
+  [4;36;1mCategory Load (0.001582)[0m   [0;1mSELECT * FROM `categories` WHERE (`categories`.`id` = 2) [0m
+  [4;35;1mCACHE (0.000000)[0m   [0mSELECT * FROM `categories` WHERE (`categories`.`id` = 1) [0m
+Completed in 0.22935 (4 reqs/sec) | Rendering: 0.14018 (61%) | DB: 0.05456 (23%) | 200 OK [http://localhost/admin/company]

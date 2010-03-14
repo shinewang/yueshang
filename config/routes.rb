@@ -78,7 +78,7 @@ ActionController::Routing::Routes.draw do |map|
     admin.new_company 'company/new', :controller => 'companies', :action => 'new', :conditions => {:method => :get}
     admin.create_company 'company/new', :controller => 'companies', :action => 'create', :conditions => {:method => :post}
     admin.edit_company 'company/:company_id/edit', :controller => 'companies', :action => 'edit', :conditions => {:method => :get}
-    admin.update_company 'company/:company_id/edit', :controller => 'companies', :action => 'edit', :conditions => {:method => :put}
+    admin.update_company 'company/:company_id/edit', :controller => 'companies', :action => 'update', :conditions => {:method => :put}
     admin.destroy_company 'company/:company_id', :controller => 'companies', :action => 'destroy', :conditions => {:method => :delete}
   end
 

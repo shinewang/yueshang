@@ -1,7 +1,7 @@
 编辑公司
 
 <%= error_messages_for :company %>
-<% form_for :company, :url => admin_create_company_path do |f| -%>
+<% form_for :company, :url => admin_update_company_path, :html => {:method => :put} do |f| -%>
   <fieldset>
     <p>
       <label for="name">公司名称</label><br />
