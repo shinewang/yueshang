@@ -1,0 +1,15 @@
+<div id="sidebar">
+
+</div>
+<div id="content">
+  <h2>重新发送激活邮件</h2>
+  <% form_for :account, :url => {:action => 'lost_activation'} do |form| %>
+    <fieldset>
+      <p>请输入您在本站使用的电子邮箱地址</p>
+      <div><%= form.text_field :email, :size => 40, :maxlength=>60, :class => 'text' %></div>
+      <%= submit_tag '重新发送激活邮件' %>
+    </fieldset>
+  <% end %>
+  <div class="clear"></div>
+</div>
+

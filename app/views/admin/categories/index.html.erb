@@ -1,0 +1,24 @@
+
+<table>
+  <tr>
+    <th><%=link_to '序号', sortable("id", "desc") %></th>
+    <th><%=link_to '名称', sortable("name") %></th>
+    <th><%=link_to '父分类', sortable("parent_category_id") %></th>
+    <th><%=link_to '创建时间', sortable("created_at", "desc") %></th>
+    <th><%=link_to '最后更新', sortable("updated_at", "desc") %></th>
+    <th>操作</th>
+  </tr>
+
+<% for category in @categories %>
+  <tr>
+    <td><%= category.id %></td>
+    <td><%= h category.name %></td>
+    <td><%= h category.parent_category_id %></td>
+    <td><%= format_time(category.created_at) %></td>
+    <td><%= format_time(category.updated_at) %></td>
+    <td><%=link_to '新建子类', admin_new_category_path(:parent_id => category.id) %></td>
+  </tr>
+<% end %>
+</table>
+
+<%= link_to '新建顶级分类', admin_new_category_path(:parent_id => 0)%>

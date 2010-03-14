@@ -1,0 +1,69 @@
+编辑公司
+
+<%= error_messages_for :company %>
+<% form_for :company, :url => admin_create_company_path do |f| -%>
+  <fieldset>
+    <p>
+      <label for="name">公司名称</label><br />
+      <%= f.text_field :name, :class => 'text'%>
+    </p>
+    <p>
+      <label for="introduction">公司简介</label><br />
+      <%= f.text_area :introduction %>
+    </p>
+    <p>
+      <label for="contact_person">联系人</label><br />
+      <%= f.text_field :contact_person %>
+    </p>
+    <p>
+      <label for="tel">固定电话</label><br />
+      <%= f.text_field :tel %>
+    </p>
+    <p>
+      <label for="mobile">手机</label><br />
+      <%= f.text_field :mobile %>
+    </p>
+    <p>
+      <label for="email">Email</label><br />
+      <%= f.text_field :email %>
+    </p>
+    <p>
+      <label for="qq">QQ</label><br />
+      <%= f.text_field :qq %>
+    </p>
+    <p>
+      <label for="msn">MSN</label><br />
+      <%= f.text_field :msn %>
+    </p>
+    <p>
+      <label for="fax">传真</label><br />
+      <%= f.text_field :fax %>
+    </p>
+    <p>
+      <label for="address">公司地址</label><br />
+      <%= f.text_field :address %>
+    </p>
+    <p>
+      <label for="zip">邮编</label><br />
+      <%= f.text_field :zip %>
+    </p>
+    <p>
+      <label for="site">公司主页</label><br />
+      <%= f.text_field :site %>
+    </p>
+    <p>
+      <label for="remark">备注</label><br />
+      <%= f.text_area :remark %>
+    </p>
+    <p>
+      <label for="category_id">所属行业</label><br />
+      <%= select("company", "category_id", @categories.collect {|p| [ p.name, p.id ] })%>
+      </p>
+    <p>
+      <div class="submitButton"><%= submit_tag '更新' %></div>
+    </p>
+  </fieldset>
+<% end -%>
+
+<%= link_to 'Show', @company %> |
+<%= link_to 'Back', companies_path %>

@@ -1,0 +1,52 @@
+development:
+  settings:
+    name: AutoTimes
+    domain: autotimes.sglab.cn
+    session_key: _your_application_session
+    secret: 3455e1ec3873da2b8e3574a068f10c2ea9e361947fad7b7b14be84b090589954b5c8dbf316c5bc6d77745c27fb36f9c17176f6feba4e3dac88103e0a42530f71
+    forgery: b8029fa60066bb90d7fb4e68265a112b
+    admin_email: donotreply@zealion.com
+    sign_up_enable: enable
+    disable_account_name: webmaster,administrator
+    open_status: open
+  rest_auth:
+    site_key: e587f9d09baa59c920b9ee97ac70f58b3c51356c
+    stretches: 10
+  mail:
+    address: smtp.gmail.com
+    port: 587
+    domain: sglab.cn
+    authentication: :login
+    user_name: donotreply@zealion.com
+    password: trES9aR4
+    sender: donotreply@zealion.com
+  recaptcha:
+    publickey: 6Ld49gMAAAAAACXRbc8gNM-GJsrQiOve7u4t6Qu-
+    privatekey: 6Ld49gMAAAAAANECu_uCo1eFHr7I8OLFtPbYiWm0
+
+production:
+  settings:
+    name: AutoTimes
+    domain: autotimes.sglab.cn
+    session_key: _your_application_session
+    secret: 3455e1ec3873da2b8e3574a068f10c2ea9e361947fad7b7b14be84b090589954b5c8dbf316c5bc6d77745c27fb36f9c17176f6feba4e3dac88103e0a42530f71
+    forgery: b8029fa60066bb90d7fb4e68265a112b
+    admin_email: donotreply@zealion.com
+    sign_up_enable: enable
+    disable_account_name: webmaster,administrator
+    open_status: open
+  rest_auth:
+    site_key: e587f9d09baa59c920b9ee97ac70f58b3c51356c
+    stretches: 10
+  mail:
+    address: smtp.gmail.com
+    port: 587
+    domain: sglab.cn
+    authentication: :login
+    user_name: donotreply@zealion.com
+    password: trES9aR4
+    sender: donotreply@zealion.com
+  recaptcha:
+    publickey: 6Ld49gMAAAAAACXRbc8gNM-GJsrQiOve7u4t6Qu-
+    privatekey: 6Ld49gMAAAAAANECu_uCo1eFHr7I8OLFtPbYiWm0
+

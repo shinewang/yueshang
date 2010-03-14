@@ -1,0 +1,30 @@
+
+<table>
+  <tr>
+    <th><%=link_to '序号', sortable("id", "desc") %></th>
+    <th><%=link_to '用户名', sortable("login") %></th>
+    <th><%=link_to '电子邮箱', sortable("email") %></th>
+    <th><%=link_to '创建时间', sortable("created_at", "desc") %></th>
+    <th><%=link_to '最后更新', sortable("updated_at", "desc") %></th>
+    <th><%=link_to '激活', sortable("activation_code") %></th>
+    <th><%=link_to '状态', sortable("enable") %></th>
+    <th>权限角色</th>
+  </tr>
+
+<% for account in @accounts %>
+  <tr>
+    <td><%= account.id %></td>
+    <td><%= h account.login %></td>
+    <td><%= h account.email %></td>
+    <td><%= format_time(account.created_at) %></td>
+    <td><%= format_time(account.updated_at) %></td>
+    <td><%= link_to_if account.activation_code, '激活', admin_activate_account_path(account), :method => :put do "已激活" end %></td>
+    <td><%= able account.enable %></td>
+    <td><%= role_tag account.roles %></td>
+    <td><%= link_to '修改', admin_edit_account_path(account) %></td>
+    <td><%= link_to '修改角色', admin_edit_account_role_path(account) %></td>
+  </tr>
+<% end %>
+</table>
+
+<%= will_paginate @accounts, :previous_label => '上一页', :next_label => '下一页' %>

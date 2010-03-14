@@ -1,0 +1,26 @@
+<div id="sidebar">
+  <%= link_to '还没有注册?', new_account_path, :class => 'navLink' %>
+</div>
+<div id="content">
+  <h2>登录<%= APP_CONFIG['settings']['name'] %></h2>
+  <% form_tag login_path do -%>
+    <fieldset id="loginSet">
+      <div>
+        <label for="login" class="block">用户名</label><%= text_field_tag 'login', params[:login], :size => 20, :maxlength => 30, :class => 'input' %>
+      </div>
+      <div>
+        <label for="password" class="block">密码</label><%= password_field_tag 'password', nil, :size => 20, :maxlength=> 20, :class => 'input' %>
+      </div>
+      <div><%= check_box_tag 'remember_me' %><label for="remember_me">下次自动登录</label></div>
+      <% if_recaptcha? do %>
+        <div>
+            <label for="recaptcha">请输入验证码</label>
+            <%= recaptcha_tags %>
+        </div>
+      <% end %>
+      <div><%= submit_tag '登录', :class => 'button' %> <%= link_to '忘记密码?', forgot_password_path %></div>
+    </fieldset>
+  <% end -%>
+  <div class="clear"></div>
+</div>
+

@@ -1,0 +1,16 @@
+<h2>修改用户权限角色</h2>
+<label>序号<%= @account.id %></label>
+<p><label>用户名</label><%= h @account.login %></p>
+<p><label>角色:</label>
+  <% for role in @account.roles %>
+    <%= h role.name %><%= link_to " 删除", admin_remove_account_role_path(:id=>@account.id, :role=>role.id), :method => :delete %>
+  <% end %>
+</p>
+<% unless @roles.empty? %>
+  <% form_tag admin_add_account_role_path(@account), :method => :post do %>
+    <p>
+      <%= select :role, :id, @roles.collect {|r| [ r.name, r.id ]}  %>
+      <%= submit_tag "添加", :name => nil %>
+    </p>
+  <% end %>
+<% end %>

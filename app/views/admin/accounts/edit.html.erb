@@ -1,0 +1,31 @@
+<h2>修改用户信息</h2>
+
+<% form_for :account, :url => admin_update_account_path, :html => {:method => :put} do |f| %>
+  <%= f.error_messages %>
+
+  <label>序号<%= @account.id %></label>
+  <p>
+    <%= f.label :login, "用户名" %><br />
+    <%= f.text_field :login %>
+  </p>
+  <p>
+    <%= f.label :email, "电子邮箱" %><br />
+    <%= f.text_field :email %>
+  </p>
+  <p>
+    <%= f.label :password, "密码" %><br />
+    <%= f.password_field :password, :size => 20, :maxlength=> 20, :class => 'text' %>
+  </p>
+  <p>
+    <%= f.label :password_confirmation, "密码确认" %><br />
+    <%= f.password_field :password_confirmation, :size => 20, :maxlength=> 20, :class => 'text' %>
+  </p>
+  <p>
+    <%= f.label :enable, "状态" %><br />
+    <%= f.select :enable, [['有效', true], ['失效', false]] %>
+  </p>
+  <p>
+    <%= f.submit "修改" %>
+  </p>
+<% end %>
+

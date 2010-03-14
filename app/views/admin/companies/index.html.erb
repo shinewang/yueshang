@@ -1,0 +1,30 @@
+<table>
+  <tr>
+    <th><%=link_to '序号', sortable("id", "desc") %></th>
+    <th><%=link_to '公司名称', sortable("name") %></th>
+    <th>分类</th>
+    <th>联系人</th>
+    <th>固定电话</th>
+    <th>手机</th>
+    <th>操作</th>
+  </tr>
+
+<% for company in @companies %>
+  <tr>
+    <td><%=h company.id %></td>
+    <td><%=h company.name %></td>
+    <td><%=h company.category.name %></td>
+    <td><%=h company.contact_person %></td>
+    <td><%=h company.tel %></td>
+    <td><%=h company.mobile %></td>
+    <td><%=link_to '编辑', admin_edit_company_path(:company_id => company.id) %> |
+        <%= link_to '删除', admin_destroy_company_path(:company_id => company.id),
+          :confirm => '确定要删除吗？', :method => :delete %>
+    </td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to '新建公司', admin_new_company_path %>

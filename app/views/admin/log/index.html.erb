@@ -1,0 +1,28 @@
+
+<%= link_to "后台操作记录", admin_list_audit_path %> | 登录失败记录
+<table>
+  <tr>
+    <th><%=link_to 'IP地址', sortable("remote_ip") %></th>
+    <th>HTTP User Agent</th>
+    <th><%=link_to '类型', sortable("failure_type") %></th>
+    <th><%=link_to '用户名', sortable("username") %></th>
+    <th><%=link_to '次数', sortable("count", "desc") %></th>
+    <th><%=link_to '开始时间', sortable("created_at", "desc") %></th>
+    <th><%=link_to '结束时间', sortable("updated_at", "desc") %></th>
+  </tr>
+
+<% for failure in @failures %>
+  <tr>
+    <td><%= failure.remote_ip %></td>
+    <td><%= h failure.http_user_agent %></td>
+    <td><%= failure.failure_type %></td>
+    <td><%= h failure.username %></td>
+    <td><%= failure.count %></td>
+    <td><%= failure.created_at %></td>
+    <td><%= failure.updated_at %></td>
+    <td><%= link_to '删除', admin_destroy_failure_path(failure), :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<%= will_paginate @failures, :previous_label => '上一页', :next_label => '下一页' %>

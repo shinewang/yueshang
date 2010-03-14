@@ -1,0 +1,26 @@
+后台操作记录 | <%= link_to "登录失败记录", admin_list_failure_path %>
+<table>
+  <tr>
+    <th><%=link_to '序号', sortable("id") %></th>
+    <th><%=link_to '时间', sortable("created_at", "desc") %></th>
+    <th><%=link_to '用户', sortable("account_id") %></th>
+    <th><%=link_to 'IP地址', sortable("ip") %></th>
+    <th><%=link_to '模块', sortable("module_name") %></th>
+    <th><%=link_to '操作', sortable("action") %></th>
+    <th>内容</th> 
+  </tr>
+
+<% for audit in @audits %>
+  <tr>
+    <td><%= audit.id %></td>
+    <td><%= format_time(audit.created_at) %></td>
+    <td><%= h audit.account.login %></td>
+    <td><%= audit.ip %></td>
+    <td><%= audit.module_name %></td>
+    <td><%= audit.action %></td>
+    <td><%= h audit.record %></td>
+  </tr>
+<% end %>
+</table>
+
+<%= will_paginate @audits, :previous_label => '上一页', :next_label => '下一页' %>
