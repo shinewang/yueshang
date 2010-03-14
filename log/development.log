@@ -10547,3 +10547,103 @@ The error occurred while evaluating nil.collect) on line #60 of admin/companies/
     :1:in `start'
 
 Rendering F:/netbeans6.5/ruby2/jruby-1.1.4/lib/ruby/gems/1.8/gems/actionpack-2.1.0/lib/action_controller/templates/rescues/layout.erb (internal_server_error)
+
+
+Processing SiteController#index (for 127.0.0.1 at 2010-03-14 14:46:32) [GET]
+  Session ID: fb072249974f05bfcda40cb055be6d6f
+  Parameters: {"controller"=>"site", "action"=>"index"}
+WARNING: You're using the Ruby-based MySQL library that ships with Rails. This library is not suited for production. Please install the C-based MySQL library instead (gem install mysql).
+  [4;36;1mSQL (0.062065)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.047115)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+Rendering template within layouts/application
+Rendering site/index
+Completed in 0.99689 (1 reqs/sec) | Rendering: 0.99060 (99%) | DB: 0.10918 (10%) | 200 OK [http://localhost/]
+
+
+Processing SessionsController#new (for 127.0.0.1 at 2010-03-14 14:46:43) [GET]
+  Session ID: BAh7BiIKZmxhc2hJQzonQWN0aW9uQ29udHJvbGxlcjo6Rmxhc2g6OkZsYXNo
+SGFzaHsABjoKQHVzZWR7AA==--de40e816de47891d0e833048c55c9e6d765412ca
+  Parameters: {"controller"=>"sessions", "action"=>"new"}
+  [4;36;1mUserFailure Load (0.457233)[0m   [0;1mSELECT * FROM `user_failures` WHERE (remote_ip = '127.0.0.1' and count >= 4 and updated_at >= '2010-03-14 05:46:43') LIMIT 1[0m
+Rendering template within layouts/application
+Rendering sessions/new
+Completed in 0.87476 (1 reqs/sec) | Rendering: 0.07143 (8%) | DB: 0.45723 (52%) | 200 OK [http://localhost/login]
+
+
+Processing SessionsController#create (for 127.0.0.1 at 2010-03-14 14:46:55) [POST]
+  Session ID: BAh7ByIKZmxhc2hJQzonQWN0aW9uQ29udHJvbGxlcjo6Rmxhc2g6OkZsYXNo
+SGFzaHsABjoKQHVzZWR7ADoMY3NyZl9pZCIlZWYzMjMyZjFiYmE3YjI2Mzg0
+NWZkMTM3NWRlMjRmMDI=--a9416af960a0c10e8b18f4c8bd7759f17303c259
+  Parameters: {"authenticity_token"=>"836992cd65c9aa197ebbe4191944682e260420c9", "login"=>"admin", "password"=>"password", "commit"=>"登录", "controller"=>"sessions", "action"=>"create"}
+  [4;35;1mUserFailure Load (0.004819)[0m   [0mSELECT * FROM `user_failures` WHERE (remote_ip = '127.0.0.1' and count >= 4 and updated_at >= '2010-03-14 05:46:55') LIMIT 1[0m
+  [4;36;1mAccount Load (0.062477)[0m   [0;1mSELECT * FROM `accounts` WHERE (login = 'admin' and activation_code IS NULL) LIMIT 1[0m
+  [4;35;1mAccount Columns (0.110950)[0m   [0mSHOW FIELDS FROM `accounts`[0m
+登录成功:admin@Sun Mar 14 14:46:55 +0800 2010 127.0.0.1
+Redirected to http://localhost:3000/
+Completed in 0.26928 (3 reqs/sec) | DB: 0.17825 (66%) | 302 Found [http://localhost/login]
+
+
+Processing SiteController#index (for 127.0.0.1 at 2010-03-14 14:46:55) [GET]
+  Session ID: BAh7CSIKZmxhc2hJQzonQWN0aW9uQ29udHJvbGxlcjo6Rmxhc2g6OkZsYXNo
+SGFzaHsABjoKQHVzZWR7ADoMY3NyZl9pZCIlZWYzMjMyZjFiYmE3YjI2Mzg0
+NWZkMTM3NWRlMjRmMDI6D2FjY291bnRfaWRpBjoOcmV0dXJuX3RvMA==--6c0c0c449e6035610aee846d527272fce1737eaa
+  Parameters: {"controller"=>"site", "action"=>"index"}
+Rendering template within layouts/application
+Rendering site/index
+  [4;36;1mAccount Columns (0.016156)[0m   [0;1mSHOW FIELDS FROM `accounts`[0m
+  [4;35;1mAccount Load (0.035037)[0m   [0mSELECT * FROM `accounts` WHERE (`accounts`.`id` = 1) LIMIT 1[0m
+Completed in 0.18401 (5 reqs/sec) | Rendering: 0.12486 (67%) | DB: 0.05119 (27%) | 200 OK [http://localhost/]
+
+
+Processing AuditController#index (for 127.0.0.1 at 2010-03-14 14:47:00) [GET]
+  Session ID: BAh7CSIKZmxhc2hJQzonQWN0aW9uQ29udHJvbGxlcjo6Rmxhc2g6OkZsYXNo
+SGFzaHsABjoKQHVzZWR7ADoMY3NyZl9pZCIlZWYzMjMyZjFiYmE3YjI2Mzg0
+NWZkMTM3NWRlMjRmMDI6D2FjY291bnRfaWRpBjoOcmV0dXJuX3RvMA==--6c0c0c449e6035610aee846d527272fce1737eaa
+  Parameters: {"controller"=>"admin/audit", "action"=>"index"}
+  [4;36;1mAccount Columns (0.012742)[0m   [0;1mSHOW FIELDS FROM `accounts`[0m
+  [4;35;1mAccount Load (0.004984)[0m   [0mSELECT * FROM `accounts` WHERE (`accounts`.`id` = 1) LIMIT 1[0m
+  [4;36;1mJoin Table Columns (0.054468)[0m   [0;1mSHOW FIELDS FROM `accounts_roles`[0m
+  [4;35;1mRole Load (0.086746)[0m   [0mSELECT * FROM `roles` INNER JOIN `accounts_roles` ON `roles`.id = `accounts_roles`.role_id WHERE (`accounts_roles`.account_id = 1 ) [0m
+  [4;36;1mRole Columns (0.011435)[0m   [0;1mSHOW FIELDS FROM `roles`[0m
+  [4;35;1mAdmin::Audit Load (0.028760)[0m   [0mSELECT * FROM `admin_audits` ORDER BY created_at DESC LIMIT 0, 2[0m
+Rendering template within layouts/admin
+Rendering admin/audit/index
+Completed in 0.41495 (2 reqs/sec) | Rendering: 0.12163 (29%) | DB: 0.19913 (47%) | 200 OK [http://localhost/admin]
+
+
+Processing CategoriesController#index (for 127.0.0.1 at 2010-03-14 14:47:02) [GET]
+  Session ID: BAh7CSIKZmxhc2hJQzonQWN0aW9uQ29udHJvbGxlcjo6Rmxhc2g6OkZsYXNo
+SGFzaHsABjoKQHVzZWR7ADoMY3NyZl9pZCIlZWYzMjMyZjFiYmE3YjI2Mzg0
+NWZkMTM3NWRlMjRmMDI6D2FjY291bnRfaWRpBjoOcmV0dXJuX3RvMA==--6c0c0c449e6035610aee846d527272fce1737eaa
+  Parameters: {"controller"=>"admin/categories", "action"=>"index"}
+  [4;36;1mAccount Columns (0.012193)[0m   [0;1mSHOW FIELDS FROM `accounts`[0m
+  [4;35;1mAccount Load (0.005962)[0m   [0mSELECT * FROM `accounts` WHERE (`accounts`.`id` = 1) LIMIT 1[0m
+  [4;36;1mJoin Table Columns (0.009546)[0m   [0;1mSHOW FIELDS FROM `accounts_roles`[0m
+  [4;35;1mRole Load (0.003398)[0m   [0mSELECT * FROM `roles` INNER JOIN `accounts_roles` ON `roles`.id = `accounts_roles`.role_id WHERE (`accounts_roles`.account_id = 1 ) [0m
+  [4;36;1mRole Columns (0.026994)[0m   [0;1mSHOW FIELDS FROM `roles`[0m
+  [4;35;1mCategory Load (0.101163)[0m   [0mSELECT * FROM `categories` ORDER BY created_at DESC[0m
+Rendering template within layouts/admin
+Rendering admin/categories/index
+  [4;36;1mCategory Columns (0.008045)[0m   [0;1mSHOW FIELDS FROM `categories`[0m
+Completed in 0.36222 (2 reqs/sec) | Rendering: 0.11891 (32%) | DB: 0.16730 (46%) | 200 OK [http://localhost/admin/category]
+
+
+Processing CompaniesController#index (for 127.0.0.1 at 2010-03-14 14:47:04) [GET]
+  Session ID: BAh7CSIKZmxhc2hJQzonQWN0aW9uQ29udHJvbGxlcjo6Rmxhc2g6OkZsYXNo
+SGFzaHsABjoKQHVzZWR7ADoMY3NyZl9pZCIlZWYzMjMyZjFiYmE3YjI2Mzg0
+NWZkMTM3NWRlMjRmMDI6D2FjY291bnRfaWRpBjoOcmV0dXJuX3RvMA==--6c0c0c449e6035610aee846d527272fce1737eaa
+  Parameters: {"controller"=>"admin/companies", "action"=>"index"}
+  [4;35;1mAccount Columns (0.012320)[0m   [0mSHOW FIELDS FROM `accounts`[0m
+  [4;36;1mAccount Load (0.007400)[0m   [0;1mSELECT * FROM `accounts` WHERE (`accounts`.`id` = 1) LIMIT 1[0m
+  [4;35;1mJoin Table Columns (0.009490)[0m   [0mSHOW FIELDS FROM `accounts_roles`[0m
+  [4;36;1mRole Load (0.002296)[0m   [0;1mSELECT * FROM `roles` INNER JOIN `accounts_roles` ON `roles`.id = `accounts_roles`.role_id WHERE (`accounts_roles`.account_id = 1 ) [0m
+  [4;35;1mRole Columns (0.016141)[0m   [0mSHOW FIELDS FROM `roles`[0m
+  [4;36;1mCompany Load (0.034673)[0m   [0;1mSELECT * FROM `companies` ORDER BY created_at DESC[0m
+Rendering template within layouts/admin
+Rendering admin/companies/index
+  [4;35;1mCompany Columns (0.008882)[0m   [0mSHOW FIELDS FROM `companies`[0m
+  [4;36;1mCategory Columns (0.012788)[0m   [0;1mSHOW FIELDS FROM `categories`[0m
+  [4;35;1mCategory Load (0.006346)[0m   [0mSELECT * FROM `categories` WHERE (`categories`.`id` = 3) [0m
+  [4;36;1mCategory Load (0.002836)[0m   [0;1mSELECT * FROM `categories` WHERE (`categories`.`id` = 2) [0m
+  [4;35;1mCategory Load (0.004056)[0m   [0mSELECT * FROM `categories` WHERE (`categories`.`id` = 1) [0m
+Completed in 0.36311 (2 reqs/sec) | Rendering: 0.19976 (55%) | DB: 0.11723 (32%) | 200 OK [http://localhost/admin/company]
